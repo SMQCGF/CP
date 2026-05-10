@@ -1,0 +1,2918 @@
+[
+  {
+    "id": "XC001",
+    "name": "1*1半光横条",
+    "spec": "17.5*3*27",
+    "material": "75*75*150",
+    "weight": 79.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC002",
+    "name": "1*1消光横条",
+    "spec": "17.5*3*28",
+    "material": "75*75*150",
+    "weight": 80.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC003",
+    "name": "1*1消光横条加密",
+    "spec": "17.5*3*32",
+    "material": "75*75*150",
+    "weight": 85.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC004",
+    "name": "1*2半光横条",
+    "spec": "17.5*3*28",
+    "material": "75*75*150",
+    "weight": 78.0,
+    "width": 165.0,
+    "price": 2.4
+  },
+  {
+    "id": "XC005",
+    "name": "1*3半光横条",
+    "spec": "17.5*3*28",
+    "material": "75*75*150",
+    "weight": 78.0,
+    "width": 165.0,
+    "price": 2.4
+  },
+  {
+    "id": "XC006",
+    "name": "2*2半光横条",
+    "spec": "17.5*3*28",
+    "material": "75*75*150",
+    "weight": 80.0,
+    "width": 165.0,
+    "price": 2.4
+  },
+  {
+    "id": "XC007",
+    "name": "150*300半光横条",
+    "spec": "17.5*3*22",
+    "material": "75*150*300",
+    "weight": 105.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC008",
+    "name": "150*300消光横条",
+    "spec": "17.5*3*22",
+    "material": "75*150*300",
+    "weight": 103.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC009",
+    "name": "240T 0.15浮格",
+    "spec": "17.5*3*28",
+    "material": "75*75*150",
+    "weight": 73.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC010",
+    "name": "240T 0.15*0.18平格",
+    "spec": "17.5*3*28",
+    "material": "75*75*150",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC011",
+    "name": "240T 0.2半光平格",
+    "spec": "17.5*3*27",
+    "material": "75*75*150",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC012",
+    "name": "240T 0.2消光平格",
+    "spec": "17.5*3*27",
+    "material": "75*75*150",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC013",
+    "name": "240T 0.2浮格",
+    "spec": "17.5*3*28",
+    "material": "75*75*150",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC014",
+    "name": "240T 0.3浮格",
+    "spec": "17.5*3*29",
+    "material": "75*75*150",
+    "weight": 71.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC015",
+    "name": "240T 0.3三线格",
+    "spec": "17.5*3*28",
+    "material": "75*75*150",
+    "weight": 79.0,
+    "width": 165.0,
+    "price": 2.4
+  },
+  {
+    "id": "XC016",
+    "name": "240T 0.1浮格",
+    "spec": "17.5*3*28",
+    "material": "75*75*150",
+    "weight": 73.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC017",
+    "name": "240T 0.2半光花格",
+    "spec": "17.5*3*28",
+    "material": "75*75",
+    "weight": 67.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC018",
+    "name": "260T 0.15半光花格",
+    "spec": "20*3*34",
+    "material": "75*75",
+    "weight": 82.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC019",
+    "name": "300T 0.1半光平格",
+    "spec": "22*3*37",
+    "material": "50*50*100",
+    "weight": 68.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC020",
+    "name": "300T 0.15半光平格",
+    "spec": "22*3*37",
+    "material": "50*50*100",
+    "weight": 68.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC021",
+    "name": "300T 0.2消光平格",
+    "spec": "22*3*37",
+    "material": "50*50*100",
+    "weight": 65.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC022",
+    "name": "300T 0.2半光双线格",
+    "spec": "22*3*41",
+    "material": "50*50*100",
+    "weight": 68.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC023",
+    "name": "300T 0.2消光双线格",
+    "spec": "22*3*41",
+    "material": "50*50*100",
+    "weight": 68.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC024",
+    "name": "300T 0.3消光双线格",
+    "spec": "22*3*41",
+    "material": "50*50*100",
+    "weight": 68.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC025",
+    "name": "26梭  消光双线分格",
+    "spec": "20*3*26",
+    "material": "75*75*150",
+    "weight": 75.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC026",
+    "name": "33梭  消光双线分格",
+    "spec": "20*3*33",
+    "material": "75*75*150",
+    "weight": 84.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC027",
+    "name": "300T 0.3半光浮格",
+    "spec": "21*3*41",
+    "material": "50*50*100",
+    "weight": 68.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC028",
+    "name": "300T 0.2半光单线格",
+    "spec": "22*3*38",
+    "material": "50*50*100",
+    "weight": 68.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC029",
+    "name": "300T 0.3半光双线格",
+    "spec": "22*3*39",
+    "material": "50*50*100",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC030",
+    "name": "300T 0.12消光平格",
+    "spec": "22*3*40",
+    "material": "50*50*100",
+    "weight": 65.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC031",
+    "name": "300T 0.3半光平格",
+    "spec": "22*3*37",
+    "material": "50*50*100",
+    "weight": 65.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC032",
+    "name": "300T 0.2半光平格",
+    "spec": "22*3*37",
+    "material": "50*50*100",
+    "weight": 65.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC033",
+    "name": "0.15消光桃皮格",
+    "spec": "18*3+33",
+    "material": "75*150*300",
+    "weight": 118.0,
+    "width": 173.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC034",
+    "name": "0.2桃皮格",
+    "spec": "17.5*3*22",
+    "material": "75*150*300",
+    "weight": 95.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC035",
+    "name": "0.25桃皮格",
+    "spec": "17.5*3*26",
+    "material": "75*150*300",
+    "weight": 103.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC036",
+    "name": "0.5  半光绒格",
+    "spec": "17.5*3*31",
+    "material": "75*150*300",
+    "weight": 101.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC037",
+    "name": "塔丝绒0.25格",
+    "spec": "17.5*3*27",
+    "material": "75*160*320",
+    "weight": 90.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC038",
+    "name": "240T 0.5格",
+    "spec": "17.5*3*31",
+    "material": "75*75*150",
+    "weight": 71.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC039",
+    "name": "高弹米通",
+    "spec": "20*3*34",
+    "material": "50*50*100",
+    "weight": 70.0,
+    "width": 188.0,
+    "price": 2.4
+  },
+  {
+    "id": "XC040",
+    "name": "75*50+150单层米通",
+    "spec": "17.5*3*28",
+    "material": "75*50*150",
+    "weight": 72.0,
+    "width": 165.0,
+    "price": 2.4
+  },
+  {
+    "id": "XC041",
+    "name": "75*75+150单层米通",
+    "spec": "17.5*3*32",
+    "material": "75*75*150",
+    "weight": 88.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC042",
+    "name": "50*50+150单层米通",
+    "spec": "22*3*37",
+    "material": "50*50*150",
+    "weight": 76.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC043",
+    "name": "50*50+100单层米通",
+    "spec": "23*3*37",
+    "material": "50*50*50*2",
+    "weight": 72.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC044",
+    "name": "50S消光珍珠点50*50*150",
+    "spec": "23*3+50",
+    "material": "50*50*150",
+    "weight": 90.0,
+    "width": 165.0,
+    "price": 4.7
+  },
+  {
+    "id": "XC045",
+    "name": "半光珍珠点75*150*300",
+    "spec": "17.5*3*28",
+    "material": "75*150*300",
+    "weight": 110.0,
+    "width": 165.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC046",
+    "name": "半光珍珠点50*50*150",
+    "spec": "22*3*40",
+    "material": "50*50*150",
+    "weight": 73.0,
+    "width": 165.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC047",
+    "name": "消光珍珠点50*50*150",
+    "spec": "22*3+40",
+    "material": "50*50*150",
+    "weight": 77.0,
+    "width": 165.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC048",
+    "name": "消光珍珠点75*75*150",
+    "spec": "17.5*3*29",
+    "material": "75*75*150",
+    "weight": 85.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC049",
+    "name": "半光珍珠点75*75*300",
+    "spec": "17.5*3*29",
+    "material": "75*75*300",
+    "weight": 92.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC050",
+    "name": "消光珍珠点75*75*300",
+    "spec": "17.5*3*29",
+    "material": "75*75*300",
+    "weight": 92.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC051",
+    "name": "半光珍珠点75*75*150",
+    "spec": "17.5*3*29",
+    "material": "75*75*150",
+    "weight": 85.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC052",
+    "name": "消光珍珠点75*150*300",
+    "spec": "17.5*3*29",
+    "material": "75*150*300",
+    "weight": 115.0,
+    "width": 165.0,
+    "price": 3.3
+  },
+  {
+    "id": "XC053",
+    "name": "纬高弹珍珠点",
+    "spec": "19.5*4*36",
+    "material": "75*75*150",
+    "weight": 110.0,
+    "width": 184.0,
+    "price": 3.8
+  },
+  {
+    "id": "XC054",
+    "name": "150消光高弹",
+    "spec": "13*2*25",
+    "material": "150*150",
+    "weight": 90.0,
+    "width": 188.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC055",
+    "name": "150半光高弹",
+    "spec": "14*2*25",
+    "material": "150*150",
+    "weight": 90.0,
+    "width": 188.0,
+    "price": 2.1
+  },
+  {
+    "id": "XC056",
+    "name": "75D半光高弹",
+    "spec": "19*2*31",
+    "material": "75*75",
+    "weight": 61.0,
+    "width": 188.0,
+    "price": 2.0
+  },
+  {
+    "id": "XC057",
+    "name": "50D消光高弹",
+    "spec": "20*2*38",
+    "material": "50*50",
+    "weight": 49.0,
+    "width": 188.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC058",
+    "name": "天丝条",
+    "spec": "17*3*31",
+    "material": "75*150",
+    "weight": 100.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC059",
+    "name": "半光满天星",
+    "spec": "17.5*3*31",
+    "material": "75*150",
+    "weight": 100.0,
+    "width": 165.0,
+    "price": 3.2
+  },
+  {
+    "id": "XC060",
+    "name": "150D消光平纹桃皮绒30",
+    "spec": "17.5*3*30",
+    "material": "75*150",
+    "weight": 95.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC061",
+    "name": "加密半光斜桃",
+    "spec": "18*3*34",
+    "material": "75*150",
+    "weight": 108.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC062",
+    "name": "150D消光桃皮绒27",
+    "spec": "17.5*3*27",
+    "material": "75*150",
+    "weight": 91.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC063",
+    "name": "200D平纹桃皮绒",
+    "spec": "17.5*3*25",
+    "material": "75*200",
+    "weight": 98.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC064",
+    "name": "消光斜桃1/2斜桃",
+    "spec": "17.5*3*33",
+    "material": "75*150",
+    "weight": 103.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC065",
+    "name": "消光斜桃2/2斜桃",
+    "spec": "20*3*34",
+    "material": "75*150",
+    "weight": 108.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC066",
+    "name": "75D消光双纬四季纺",
+    "spec": "20*3*30",
+    "material": "75+75*2",
+    "weight": 105.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC067",
+    "name": "210T半光春亚纺",
+    "spec": "22*2*32",
+    "material": "75*75",
+    "weight": 60.0,
+    "width": 165.0,
+    "price": 2.0
+  },
+  {
+    "id": "XC068",
+    "name": "240T半光春亚纺",
+    "spec": "17.5*3*32",
+    "material": "75*75",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.1
+  },
+  {
+    "id": "XC069",
+    "name": "240T消光春亚纺",
+    "spec": "17.5*3*32",
+    "material": "75*75",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.2
+  },
+  {
+    "id": "XC070",
+    "name": "240T消光1/2春亚纺",
+    "spec": "17.5*3*32",
+    "material": "75*75",
+    "weight": 72.0,
+    "width": 165.0,
+    "price": 2.1
+  },
+  {
+    "id": "XC071",
+    "name": "240T半光2/2春亚纺 ",
+    "spec": "17.5*3*30",
+    "material": "75*75",
+    "weight": 77.0,
+    "width": 165.0,
+    "price": 2.1
+  },
+  {
+    "id": "XC072",
+    "name": "240T消光2/2春亚纺 ",
+    "spec": "17.5*3*32",
+    "material": "75*75",
+    "weight": 72.0,
+    "width": 165.0,
+    "price": 2.2
+  },
+  {
+    "id": "XC073",
+    "name": "260T消光春亚纺",
+    "spec": "20*3*35",
+    "material": "75*75",
+    "weight": 80.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC074",
+    "name": "260T消光1/2春亚纺",
+    "spec": "20*3*35",
+    "material": "75*75",
+    "weight": 80.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC075",
+    "name": "260T消光2/2春亚纺 ",
+    "spec": "20*3*35",
+    "material": "75*75",
+    "weight": 82.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC076",
+    "name": "300半光春亚纺",
+    "spec": "22*3*40",
+    "material": "50*50",
+    "weight": 60.0,
+    "width": 165.0,
+    "price": 2.2
+  },
+  {
+    "id": "XC077",
+    "name": "300消光春亚纺",
+    "spec": "23*3*40",
+    "material": "50*50",
+    "weight": 63.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC078",
+    "name": "300T半光春亚纺144F",
+    "spec": "19*3*50",
+    "material": "50*50",
+    "weight": 64.0,
+    "width": 174.0,
+    "price": 2.4
+  },
+  {
+    "id": "XC079",
+    "name": "310T消光春亚纺",
+    "spec": "23.5*3*42",
+    "material": "50*50",
+    "weight": 65.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC080",
+    "name": "300T半光2/1斜",
+    "spec": "22*3*40",
+    "material": "50*50",
+    "weight": 60.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC081",
+    "name": "50D 320T消光2/2斜",
+    "spec": "23*3*46",
+    "material": "50*50",
+    "weight": 68.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC082",
+    "name": "75D 320T消光2/2斜",
+    "spec": "23*3*46",
+    "material": "75*75",
+    "weight": 98.0,
+    "width": 165.0,
+    "price": 3.2
+  },
+  {
+    "id": "XC083",
+    "name": "300T半光高F涤塔夫",
+    "spec": "19*3*50",
+    "material": "50*50",
+    "weight": 64.0,
+    "width": 174.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC084",
+    "name": "300T消光高F涤塔夫",
+    "spec": "19*3*50",
+    "material": "50*50",
+    "weight": 64.0,
+    "width": 174.0,
+    "price": 2.2
+  },
+  {
+    "id": "XC085",
+    "name": "320T半光春亚纺",
+    "spec": "23*3*46",
+    "material": "50*50",
+    "weight": 65.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC086",
+    "name": "320T消光春亚纺",
+    "spec": "23*3*46",
+    "material": "50*50",
+    "weight": 65.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC087",
+    "name": "320T消光春亚纺2/1斜",
+    "spec": "23*3*46",
+    "material": "50*50",
+    "weight": 65.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC088",
+    "name": "320T高F半光春亚纺",
+    "spec": "23*3+46",
+    "material": "50*50",
+    "weight": 68.0,
+    "width": 174.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC089",
+    "name": "330T高F半光春亚纺",
+    "spec": "23*3+46",
+    "material": "50*65（192）",
+    "weight": 78.0,
+    "width": 174.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC090",
+    "name": "350T高F半光春亚纺",
+    "spec": "20*4*46",
+    "material": "50*50",
+    "weight": 82.0,
+    "width": 174.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC091",
+    "name": "260T半光春亚纺",
+    "spec": "20*3*35",
+    "material": "75*75",
+    "weight": 82.0,
+    "width": 165.0,
+    "price": 2.2
+  },
+  {
+    "id": "XC092",
+    "name": "280T消光春亚纺",
+    "spec": "21*3*38",
+    "material": "75*75",
+    "weight": 92.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC093",
+    "name": "260T半光2/2春亚纺",
+    "spec": "20*3*35",
+    "material": "75*75",
+    "weight": 82.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC094",
+    "name": "0.15菱形格75*75",
+    "spec": "17.5*3*35",
+    "material": "75*75",
+    "weight": 75.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC095",
+    "name": "0.18菱形格75*75",
+    "spec": "17.5*3*30",
+    "material": "75*75",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.2
+  },
+  {
+    "id": "XC096",
+    "name": "0.18菱形格75*150",
+    "spec": "17.5*3*30",
+    "material": "75*150",
+    "weight": 94.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC097",
+    "name": "0.2菱形格75*75",
+    "spec": "17.5*3*32",
+    "material": "75*75",
+    "weight": 72.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC098",
+    "name": "300T0.1长丝菱形格",
+    "spec": "19*3*50",
+    "material": "50*50",
+    "weight": 68.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC099",
+    "name": "300T0.1弹丝菱形格",
+    "spec": "22*3*40",
+    "material": "50*50",
+    "weight": 63.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC100",
+    "name": "消半弹丝双线菱形格",
+    "spec": "21*3*45",
+    "material": "50*50",
+    "weight": 65.0,
+    "width": 165.0,
+    "price": 3.3
+  },
+  {
+    "id": "XC101",
+    "name": "消光塔丝绒牛津",
+    "spec": "12*4*18",
+    "material": "150*2+160*2",
+    "weight": 148.0,
+    "width": 165.0,
+    "price": 3.4
+  },
+  {
+    "id": "XC102",
+    "name": "双经双纬消光牛津",
+    "spec": "19*2*2+26",
+    "material": "75*2+75*2",
+    "weight": 113.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC103",
+    "name": "19S单经双纬消光牛津",
+    "spec": "18*2*19",
+    "material": "150*150*2",
+    "weight": 125.0,
+    "width": 165.0,
+    "price": 3.3
+  },
+  {
+    "id": "XC104",
+    "name": "17S单经双纬消光牛津",
+    "spec": "18*2*17",
+    "material": "150*150*2",
+    "weight": 118.0,
+    "width": 165.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC105",
+    "name": "300*300牛津",
+    "spec": "12*4*18",
+    "material": "150*2+150*2",
+    "weight": 140.0,
+    "width": 165.0,
+    "price": 3.3
+  },
+  {
+    "id": "XC106",
+    "name": "34梭 米字格",
+    "spec": "17.5*3*34",
+    "material": "75*75*150",
+    "weight": 79.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC107",
+    "name": "300T 半光城墙格",
+    "spec": "22*3*41",
+    "material": "50*75",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC108",
+    "name": "240T 0.3半光足球格",
+    "spec": "17.5*3*31",
+    "material": "75*75",
+    "weight": 69.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC109",
+    "name": "0.3消光足球格",
+    "spec": "17.5*3*25",
+    "material": "75*150",
+    "weight": 88.0,
+    "width": 165.0,
+    "price": 3.4
+  },
+  {
+    "id": "XC110",
+    "name": "双线消光弹丝罗马格套格",
+    "spec": "23*3*40",
+    "material": "50*50",
+    "weight": 60.0,
+    "width": 165.0,
+    "price": 3.2
+  },
+  {
+    "id": "XC111",
+    "name": "75*150满天星",
+    "spec": "17.5*3*31",
+    "material": "75*150",
+    "weight": 93.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC112",
+    "name": "半光骑兵斜",
+    "spec": "17.5*3*32",
+    "material": "75*75",
+    "weight": 72.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC113",
+    "name": "消光骑兵斜",
+    "spec": "17.5*3*32",
+    "material": "75*150",
+    "weight": 100.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC114",
+    "name": "75D 弹丝意大利点",
+    "spec": "21*3*33",
+    "material": "75*75",
+    "weight": 76.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC115",
+    "name": "300T 消光华夫格",
+    "spec": "22*3*42",
+    "material": "50*50",
+    "weight": 61.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC116",
+    "name": "240T 半光梅花格",
+    "spec": "17.5*3*32",
+    "material": "75*75",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.4
+  },
+  {
+    "id": "XC117",
+    "name": "370T消光2/1斜",
+    "spec": "21*4*46",
+    "material": "50*50",
+    "weight": 76.0,
+    "width": 165.0,
+    "price": 3.2
+  },
+  {
+    "id": "XC118",
+    "name": "370T消光2/2斜",
+    "spec": "21*4*46",
+    "material": "50*50",
+    "weight": 76.0,
+    "width": 165.0,
+    "price": 3.2
+  },
+  {
+    "id": "XC119",
+    "name": "240T 消光人字斜",
+    "spec": "17.5*3*28",
+    "material": "75*150",
+    "weight": 92.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC120",
+    "name": "240T 半光菱中点",
+    "spec": "17.5*3*35",
+    "material": "75*75",
+    "weight": 72.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC121",
+    "name": "240T 消光斜格",
+    "spec": "17.5*3*28",
+    "material": "75*150",
+    "weight": 92.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC122",
+    "name": "导电斜纹舒美绸",
+    "spec": "19*3*37",
+    "material": "63*50",
+    "weight": 68.0,
+    "width": 165.0,
+    "price": 2.2
+  },
+  {
+    "id": "XC123",
+    "name": "韩国绒 189上机",
+    "spec": "18*4*25",
+    "material": "75/144*150/288",
+    "weight": 105.0,
+    "width": 189.0,
+    "price": 3.5
+  },
+  {
+    "id": "XC124",
+    "name": "变化斜",
+    "spec": "17.5*3*29",
+    "material": "75*150",
+    "weight": 92.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC125",
+    "name": "240T 消光格中点",
+    "spec": "17.5*3*28",
+    "material": "75*75*150",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC126",
+    "name": "240T 加密消光格中点",
+    "spec": "17.5*3*36",
+    "material": "75*75*100*2",
+    "weight": 86.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC127",
+    "name": "消光双线浮点",
+    "spec": "21*3*33",
+    "material": "75*75*150",
+    "weight": 84.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC128",
+    "name": "消光乱格",
+    "spec": "17.5*3*29",
+    "material": "75*150*300",
+    "weight": 92.0,
+    "width": 165.0,
+    "price": 3.2
+  },
+  {
+    "id": "XC129",
+    "name": "75*75 弹丝小蜂巢",
+    "spec": "17.5*3*29",
+    "material": "75*75",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.2
+  },
+  {
+    "id": "XC130",
+    "name": "75*150弹丝小蜂巢",
+    "spec": "17*3*28",
+    "material": "75*150",
+    "weight": 90.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC131",
+    "name": "75*300弹丝半光大蜂巢",
+    "spec": "17.5*3*23",
+    "material": "75*300",
+    "weight": 120.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC132",
+    "name": "塔丝绒小蜂巢",
+    "spec": "17.5*3*32",
+    "material": "75*160",
+    "weight": 98.0,
+    "width": 165.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC133",
+    "name": "多孔格",
+    "spec": "17.5*3*29",
+    "material": "75+112*75*112",
+    "weight": NaN,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC134",
+    "name": "228涤纶半光塔丝绒",
+    "spec": "17.5*3*26",
+    "material": "75*160",
+    "weight": 88.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC135",
+    "name": "228涤纶消光塔丝绒",
+    "spec": "17.5*3*26",
+    "material": "75*160",
+    "weight": 88.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC136",
+    "name": "320半光涤纶塔丝绒",
+    "spec": "17.5*3*17",
+    "material": "75*160*2",
+    "weight": 103.0,
+    "width": 165.0,
+    "price": 2.7
+  },
+  {
+    "id": "XC137",
+    "name": "320消光涤纶塔丝绒",
+    "spec": "17.5*3*17.5",
+    "material": "75*160*2",
+    "weight": 102.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC138",
+    "name": "320消光涤纶塔丝绒19S",
+    "spec": "17.5*3*19",
+    "material": "75*160*2",
+    "weight": 110.0,
+    "width": 165.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC139",
+    "name": "320消光涤纶塔丝绒20.5S",
+    "spec": "17.5*3*20.5",
+    "material": "75*160*2",
+    "weight": 113.0,
+    "width": 165.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC140",
+    "name": "30S 228涤纶消光塔丝绒",
+    "spec": "17.5*3*30",
+    "material": "75*160",
+    "weight": 95.0,
+    "width": 165.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC141",
+    "name": "75D  弹丝半光罗马格",
+    "spec": "17.5*3*32",
+    "material": "75*75",
+    "weight": 72.0,
+    "width": 165.0,
+    "price": 2.3
+  },
+  {
+    "id": "XC142",
+    "name": "300T 长丝罗马格",
+    "spec": "22*3*40",
+    "material": "50*50",
+    "weight": 57.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC143",
+    "name": "300T 消光弹丝罗马格",
+    "spec": "22*3*40",
+    "material": "50*50",
+    "weight": 62.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC144",
+    "name": "300T 半光弹丝罗马格",
+    "spec": "22*3*40",
+    "material": "50*50",
+    "weight": 62.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC145",
+    "name": "300T 消光弹丝阴阳格",
+    "spec": "22*3*40",
+    "material": "50*50",
+    "weight": 62.0,
+    "width": 165.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC146",
+    "name": "300T 半光弹丝阴阳格",
+    "spec": "22*3*40",
+    "material": "50*50",
+    "weight": 62.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC147",
+    "name": "提点(左右点)",
+    "spec": "17.5*3*32",
+    "material": "75*75",
+    "weight": 70.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC148",
+    "name": "窗户格",
+    "spec": "17.5*3*24",
+    "material": "75*150*300",
+    "weight": 95.0,
+    "width": 165.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC149",
+    "name": "细密斜",
+    "spec": "19*4*41",
+    "material": "50*50*2",
+    "weight": 97.0,
+    "width": 165.0,
+    "price": 3.3
+  },
+  {
+    "id": "XC150",
+    "name": "75D  弹丝半光阴阳格",
+    "spec": "17.5*3*32",
+    "material": "75*75",
+    "weight": 72.0,
+    "width": 165.0,
+    "price": 2.5
+  },
+  {
+    "id": "XC151",
+    "name": "36S T400破卡 208",
+    "spec": "17*4*36",
+    "material": "75消*75T400",
+    "weight": 90.0,
+    "width": 208.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC152",
+    "name": "43S T400破卡 216",
+    "spec": "18*4*43",
+    "material": "75消*75T400",
+    "weight": 100.0,
+    "width": 216.0,
+    "price": 3.7
+  },
+  {
+    "id": "XC153",
+    "name": "王者荣耀  208",
+    "spec": "17*3*45",
+    "material": "75*75T400*150",
+    "weight": 96.0,
+    "width": 208.0,
+    "price": 3.5
+  },
+  {
+    "id": "XC154",
+    "name": "王者荣耀  220",
+    "spec": "17*3*45",
+    "material": "75*75T400*150",
+    "weight": 95.0,
+    "width": 220.0,
+    "price": 3.7
+  },
+  {
+    "id": "XC155",
+    "name": "T400老珍珠点",
+    "spec": "17*3*56",
+    "material": "75*75T400*150",
+    "weight": 107.0,
+    "width": 215.0,
+    "price": 4.5
+  },
+  {
+    "id": "XC156",
+    "name": "38S T400破卡 208",
+    "spec": "17*4*38",
+    "material": "75消*75T400",
+    "weight": 92.0,
+    "width": 208.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC157",
+    "name": "T400王者归来",
+    "spec": "18*3*47",
+    "material": "75*75T400*150",
+    "weight": 94.0,
+    "width": 225.0,
+    "price": 3.6
+  },
+  {
+    "id": "XC158",
+    "name": "高弹水波纹",
+    "spec": "10*4*22",
+    "material": "150*150",
+    "weight": 120.0,
+    "width": 199.0,
+    "price": 3.4
+  },
+  {
+    "id": "XC159",
+    "name": "T400酷丝千鸟格",
+    "spec": "15*3*42",
+    "material": "60S*75T400",
+    "weight": 85.0,
+    "width": 220.0,
+    "price": 5.5
+  },
+  {
+    "id": "XC160",
+    "name": "25梭T400无捻牛津",
+    "spec": "17*2*25",
+    "material": "75*2*150T400",
+    "weight": 104.0,
+    "width": 208.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC161",
+    "name": "纬捻T400双经单纬牛津",
+    "spec": "18*2*27",
+    "material": "75*2*150T400",
+    "weight": 117.0,
+    "width": 208.0,
+    "price": 4.2
+  },
+  {
+    "id": "XC162",
+    "name": "全捻T400双经单纬牛津",
+    "spec": "18*2*28",
+    "material": "75*2*150T400",
+    "weight": 117.0,
+    "width": 208.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC163",
+    "name": "27梭T400无捻牛津",
+    "spec": "17*2*27",
+    "material": "75*2*150T400",
+    "weight": 110.0,
+    "width": 208.0,
+    "price": 3.3
+  },
+  {
+    "id": "XC164",
+    "name": "26梭T400无捻牛津",
+    "spec": "17*2*26",
+    "material": "75*2*150T400",
+    "weight": 108.0,
+    "width": 208.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC165",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC166",
+    "name": "50S*50S弹力 酷丝棉平纹  ",
+    "spec": "17*2*30",
+    "material": "50S*50S",
+    "weight": 80.0,
+    "width": 220.0,
+    "price": 4.3
+  },
+  {
+    "id": "XC167",
+    "name": "40S*40S弹力 酷丝棉平纹  ",
+    "spec": "18*2*27",
+    "material": "40S*40S",
+    "weight": 110.0,
+    "width": 208.0,
+    "price": 4.2
+  },
+  {
+    "id": "XC168",
+    "name": "40S*75T 酷丝棉平纹  ",
+    "spec": "18*2*30",
+    "material": "40S*75T400",
+    "weight": 83.0,
+    "width": 208.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC169",
+    "name": "40S*75D 酷丝棉2/1",
+    "spec": "17*3*35",
+    "material": "40S*75T400",
+    "weight": 110.0,
+    "width": 215.0,
+    "price": 3.8
+  },
+  {
+    "id": "XC170",
+    "name": "40S*75D 酷丝棉2/2 ",
+    "spec": "17.5*3*35",
+    "material": "40S*75T400",
+    "weight": 112.0,
+    "width": 215.0,
+    "price": 3.8
+  },
+  {
+    "id": "XC171",
+    "name": "40S*75D 酷丝棉骑兵斜  ",
+    "spec": "17.5*3*35",
+    "material": "40S*75T400",
+    "weight": 112.0,
+    "width": 215.0,
+    "price": 3.9
+  },
+  {
+    "id": "XC172",
+    "name": "40S*150 酷丝棉26S平纹  ",
+    "spec": "18*2*26",
+    "material": "40S*150T400",
+    "weight": 102.0,
+    "width": 210.0,
+    "price": 3.4
+  },
+  {
+    "id": "XC173",
+    "name": "40S*150 酷丝棉2/1 ",
+    "spec": "17*3*30",
+    "material": "40S*150T400",
+    "weight": 130.0,
+    "width": 215.0,
+    "price": 4.1
+  },
+  {
+    "id": "XC174",
+    "name": "40S*150D 酷丝棉2/2 ",
+    "spec": "17.5*3*29",
+    "material": "40S*150T400",
+    "weight": 135.0,
+    "width": 215.0,
+    "price": 4.3
+  },
+  {
+    "id": "XC175",
+    "name": "40S*150D 酷丝棉骑兵斜  ",
+    "spec": "17.5*3*29",
+    "material": "40S*150T400",
+    "weight": 135.0,
+    "width": 215.0,
+    "price": 4.4
+  },
+  {
+    "id": "XC176",
+    "name": "40S*150 酷丝棉3/2斜  ",
+    "spec": "13.5*4*35",
+    "material": "40S*150T400",
+    "weight": 150.0,
+    "width": 215.0,
+    "price": 4.9
+  },
+  {
+    "id": "XC177",
+    "name": "40S*150 酷丝棉28S平纹  ",
+    "spec": "18*2*28",
+    "material": "40S*150T400",
+    "weight": 106.0,
+    "width": 210.0,
+    "price": 3.6
+  },
+  {
+    "id": "XC178",
+    "name": "40S*150 酷丝棉平纹 28梭",
+    "spec": "19*2*28",
+    "material": "40S*150T400",
+    "weight": 110.0,
+    "width": 208.0,
+    "price": 3.7
+  },
+  {
+    "id": "XC179",
+    "name": "40S*150 酷丝棉24S平纹  ",
+    "spec": "18*2*24",
+    "material": "40S*150T400",
+    "weight": 96.0,
+    "width": 208.0,
+    "price": 2.8
+  },
+  {
+    "id": "XC180",
+    "name": "40S*150 酷丝棉3/3斜  ",
+    "spec": "13.5*4*35",
+    "material": "40S*150T400",
+    "weight": 150.0,
+    "width": 215.0,
+    "price": 4.5
+  },
+  {
+    "id": "XC181",
+    "name": "50S*75D 酷丝棉2/2 ",
+    "spec": "19*3*37",
+    "material": "50S*75",
+    "weight": 108.0,
+    "width": 215.0,
+    "price": 4.6
+  },
+  {
+    "id": "XC182",
+    "name": "50S*75D 酷丝棉绮兵",
+    "spec": "19*3*37",
+    "material": "50S*75",
+    "weight": 108.0,
+    "width": 215.0,
+    "price": 4.7
+  },
+  {
+    "id": "XC183",
+    "name": "50S*75D酷丝绵人字斜",
+    "spec": "18*3*36",
+    "material": "50S*75T400",
+    "weight": 150.0,
+    "width": 215.0,
+    "price": 5.3
+  },
+  {
+    "id": "XC184",
+    "name": "40S*75 酷丝棉3/3斜  ",
+    "spec": "13.5*4*35",
+    "material": "40S*75T400",
+    "weight": 112.0,
+    "width": 215.0,
+    "price": 3.7
+  },
+  {
+    "id": "XC185",
+    "name": "50S*75D 酷丝棉2/1 ",
+    "spec": "19*3*37",
+    "material": "50S*75",
+    "weight": 108.0,
+    "width": 215.0,
+    "price": 4.6
+  },
+  {
+    "id": "XC186",
+    "name": "40S*150D 酷丝棉骑兵斜  ",
+    "spec": "17.5*3*35",
+    "material": "40S*150T400",
+    "weight": 150.0,
+    "width": 215.0,
+    "price": 4.6
+  },
+  {
+    "id": "XC187",
+    "name": "40S*75 酷丝棉3/2斜  ",
+    "spec": "17.5*3*34",
+    "material": "40S*75DT400",
+    "weight": 110.0,
+    "width": 215.0,
+    "price": 3.8
+  },
+  {
+    "id": "XC188",
+    "name": "40S*150 酷丝棉5/1斜  ",
+    "spec": "13.5*4*35",
+    "material": "40S*150T400",
+    "weight": 150.0,
+    "width": 215.0,
+    "price": 4.6
+  },
+  {
+    "id": "XC189",
+    "name": "100*150T8 4/2斜",
+    "spec": "17*4*225*44",
+    "material": "100D*150T800",
+    "weight": 177.0,
+    "width": 225.0,
+    "price": 5.4
+  },
+  {
+    "id": "XC190",
+    "name": "40S*150D 酷丝棉2/2 ",
+    "spec": "17.5*3*35",
+    "material": "40S*150T400",
+    "weight": 150.0,
+    "width": 215.0,
+    "price": 4.4
+  },
+  {
+    "id": "XC191",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC192",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC193",
+    "name": "75*150T400 消3/3斜",
+    "spec": "17*4*36",
+    "material": "75*150",
+    "weight": 138.0,
+    "width": 225.0,
+    "price": 4.3
+  },
+  {
+    "id": "XC194",
+    "name": "75*75T400消 3/3斜",
+    "spec": "20*4*45",
+    "material": "75*75",
+    "weight": 110.0,
+    "width": 208.0,
+    "price": 4.0
+  },
+  {
+    "id": "XC195",
+    "name": "75*75 半光2/2 斜",
+    "spec": "18*4*46",
+    "material": "75半*75T400",
+    "weight": 105.0,
+    "width": 215.0,
+    "price": 4.2
+  },
+  {
+    "id": "XC196",
+    "name": "75*75 消光2/2 斜",
+    "spec": "18*4*43",
+    "material": "75消*75T400",
+    "weight": 100.0,
+    "width": 215.0,
+    "price": 3.7
+  },
+  {
+    "id": "XC197",
+    "name": "75*150 消光2/2 斜",
+    "spec": "18*4*36",
+    "material": "75消*150T400",
+    "weight": 129.0,
+    "width": 215.0,
+    "price": 4.0
+  },
+  {
+    "id": "XC198",
+    "name": "75*75-T800消光骑士斜",
+    "spec": "17*4*38",
+    "material": "75消*75T800",
+    "weight": 95.0,
+    "width": 215.0,
+    "price": 3.7
+  },
+  {
+    "id": "XC199",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC200",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC201",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC202",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC203",
+    "name": "360T 0.1消光平格",
+    "spec": "24*3*50",
+    "material": "30*30*60",
+    "weight": NaN,
+    "width": 175.0,
+    "price": 3.2
+  },
+  {
+    "id": "XC204",
+    "name": "30D380T半光春亚纺",
+    "spec": "25*3+60",
+    "material": "30*30",
+    "weight": 47.0,
+    "width": 174.0,
+    "price": 3.6
+  },
+  {
+    "id": "XC205",
+    "name": "30D360T半光0.15双线格",
+    "spec": "25*3+52",
+    "material": "30*30",
+    "weight": 47.0,
+    "width": 174.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC206",
+    "name": "十字格",
+    "spec": "22*3*41",
+    "material": "50*75",
+    "weight": NaN,
+    "width": 165.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC207",
+    "name": "420T消光2/2斜",
+    "spec": "19*5*45",
+    "material": "75*75",
+    "weight": 130.0,
+    "width": 170.0,
+    "price": 3.8
+  },
+  {
+    "id": "XC208",
+    "name": "六边格",
+    "spec": "17.5*3*30",
+    "material": "75*150",
+    "weight": NaN,
+    "width": 165.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC209",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC210",
+    "name": "芬迪格",
+    "spec": "19*3*39",
+    "material": "75*75",
+    "weight": 90.0,
+    "width": 174.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC211",
+    "name": "X字格",
+    "spec": "16*4*46",
+    "material": "50*50",
+    "weight": 62.0,
+    "width": 175.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC212",
+    "name": "400半光春亚纺",
+    "spec": "25*3*63",
+    "material": "30*30",
+    "weight": 52.0,
+    "width": 178.0,
+    "price": 2.6
+  },
+  {
+    "id": "XC213",
+    "name": "消光四线格",
+    "spec": "16*4*46",
+    "material": "50*50",
+    "weight": 65.0,
+    "width": 175.0,
+    "price": 3.3
+  },
+  {
+    "id": "XC214",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC215",
+    "name": "50D消光三竖一横",
+    "spec": "18*3/5+46",
+    "material": "50*（50+50*2）",
+    "weight": 69.0,
+    "width": 170.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC216",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC217",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC218",
+    "name": "阳离子米通",
+    "spec": "18*3*33",
+    "material": "75*75+150",
+    "weight": 90.0,
+    "width": 173.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC219",
+    "name": "T400横条2*1",
+    "spec": "16*4+30",
+    "material": "100*75*150",
+    "weight": 128.0,
+    "width": 215.0,
+    "price": 3.5
+  },
+  {
+    "id": "XC220",
+    "name": "T400横条1*4",
+    "spec": "17*4+38",
+    "material": "75*75*150",
+    "weight": 100.0,
+    "width": 208.0,
+    "price": 3.3
+  },
+  {
+    "id": "XC221",
+    "name": "T400横条1*1",
+    "spec": "16*4*30",
+    "material": "100*75*150",
+    "weight": 115.0,
+    "width": 215.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC222",
+    "name": "T800米兰条",
+    "spec": "18*3*32",
+    "material": "75*75*150",
+    "weight": 95.0,
+    "width": 220.0,
+    "price": 3.5
+  },
+  {
+    "id": "XC223",
+    "name": "40S*75闪电斜",
+    "spec": "18*3*38",
+    "material": "40S*75",
+    "weight": 120.0,
+    "width": 215.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC224",
+    "name": "40S*150酷丝棉 复合斜",
+    "spec": "13.5*4*31",
+    "material": "40S*150T400",
+    "weight": 135.0,
+    "width": 215.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC225",
+    "name": "40S*150酷丝绵 小钻石斜",
+    "spec": "17.5*3*35",
+    "material": "40S*150T400",
+    "weight": 145.0,
+    "width": 215.0,
+    "price": 4.6
+  },
+  {
+    "id": "XC226",
+    "name": "40S*150酷丝绵 大钻石斜",
+    "spec": "17.5*3*35",
+    "material": "40S*150T400",
+    "weight": 145.0,
+    "width": 215.0,
+    "price": 4.6
+  },
+  {
+    "id": "XC227",
+    "name": "40S*150酷丝绵细双斜",
+    "spec": "13.5*4*35",
+    "material": "40S*150T400",
+    "weight": 150.0,
+    "width": 215.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC228",
+    "name": "40S*150酷丝绵双面骑兵斜",
+    "spec": "13.5*4*35",
+    "material": "40S*150T400",
+    "weight": 150.0,
+    "width": 215.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC229",
+    "name": "40*150D 酷丝棉子母斜  ",
+    "spec": "18*3*36",
+    "material": "40S*150T400",
+    "weight": 145.0,
+    "width": 215.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC230",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC231",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC232",
+    "name": "T400双条珍珠点",
+    "spec": "17*3*40",
+    "material": "50*75*75",
+    "weight": NaN,
+    "width": 215.0,
+    "price": 5.5
+  },
+  {
+    "id": "XC233",
+    "name": "40S*300 3/2变化斜",
+    "spec": "13.5*4*28",
+    "material": "40S*150*2T400",
+    "weight": 190.0,
+    "width": 215.0,
+    "price": 6.0
+  },
+  {
+    "id": "XC234",
+    "name": "100D半光*35S-3/3斜",
+    "spec": "16*4*42",
+    "material": "100*35",
+    "weight": 155.0,
+    "width": 218.0,
+    "price": 4.5
+  },
+  {
+    "id": "XC235",
+    "name": "120D扁平3/3斜-45",
+    "spec": "15.5*4*45",
+    "material": "120*35S",
+    "weight": 170.0,
+    "width": 220.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC236",
+    "name": "100D消光*35S-3/3斜",
+    "spec": "16*4*43",
+    "material": "100*35S",
+    "weight": 155.0,
+    "width": 218.0,
+    "price": 4.9
+  },
+  {
+    "id": "XC237",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC238",
+    "name": "120D扁平3/3斜-46",
+    "spec": "16*4*45",
+    "material": "120*35S",
+    "weight": 180.0,
+    "width": 220.0,
+    "price": 5.5
+  },
+  {
+    "id": "XC239",
+    "name": "120D扁平4/4斜",
+    "spec": "17*4*46",
+    "material": "120*35S",
+    "weight": 190.0,
+    "width": 225.0,
+    "price": 5.7
+  },
+  {
+    "id": "XC240",
+    "name": "100D消光多乐3/3斜",
+    "spec": "15*4*43",
+    "material": "100D*40S+150DT8",
+    "weight": 150.0,
+    "width": 220.0,
+    "price": 5.2
+  },
+  {
+    "id": "XC241",
+    "name": "120D扁平1/2斜",
+    "spec": "17*4*34",
+    "material": "120*35S",
+    "weight": 160.0,
+    "width": 225.0,
+    "price": 4.9
+  },
+  {
+    "id": "XC242",
+    "name": "120D扁平T800变化斜",
+    "spec": "17*4*29",
+    "material": "120*T800",
+    "weight": 190.0,
+    "width": 220.0,
+    "price": 5.2
+  },
+  {
+    "id": "XC243",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC244",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC245",
+    "name": "40S*75 酷丝棉3/1斜 ",
+    "spec": "13.5*4*34",
+    "material": "40S*75T400",
+    "weight": 112.0,
+    "width": 215.0,
+    "price": 3.8
+  },
+  {
+    "id": "XC246",
+    "name": "40S*150 酷丝棉3/1斜 31",
+    "spec": "13.5*4*31",
+    "material": "40S*150T400",
+    "weight": 135.0,
+    "width": 215.0,
+    "price": 4.3
+  },
+  {
+    "id": "XC247",
+    "name": "40S*150 酷丝棉3/2斜 39",
+    "spec": "13.5*4*39",
+    "material": "40S*150T400",
+    "weight": 160.0,
+    "width": 215.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC248",
+    "name": "40S*75D 酷丝棉2/1 30",
+    "spec": "17*3*30",
+    "material": "40S*75T400",
+    "weight": 105.0,
+    "width": 208.0,
+    "price": 3.4
+  },
+  {
+    "id": "XC249",
+    "name": "40S*75D 酷丝棉2/2 30",
+    "spec": "17.5*3*30",
+    "material": "40S*75T400",
+    "weight": 108.0,
+    "width": 215.0,
+    "price": 3.4
+  },
+  {
+    "id": "XC250",
+    "name": "40S*75D 酷丝棉2/2 38",
+    "spec": "17.5*3*38",
+    "material": "40S*75T400",
+    "weight": 116.0,
+    "width": 215.0,
+    "price": 4.3
+  },
+  {
+    "id": "XC251",
+    "name": "40S*75D 骑兵斜 30 ",
+    "spec": "17*3*30",
+    "material": "40S*75T400",
+    "weight": 105.0,
+    "width": 215.0,
+    "price": 3.5
+  },
+  {
+    "id": "XC252",
+    "name": "40S*75D 骑兵斜 38 ",
+    "spec": "17.5*3*38",
+    "material": "40S*75T400",
+    "weight": 116.0,
+    "width": 215.0,
+    "price": 4.3
+  },
+  {
+    "id": "XC253",
+    "name": "40S*300 酷丝棉3/2斜",
+    "spec": "13.5*4*27",
+    "material": "40S*150*2T400",
+    "weight": 190.0,
+    "width": 215.0,
+    "price": 5.5
+  },
+  {
+    "id": "XC254",
+    "name": "40S*75T 酷丝棉平纹 33S ",
+    "spec": "18*2*33",
+    "material": "40S*75T400",
+    "weight": 88.0,
+    "width": 208.0,
+    "price": 3.1
+  },
+  {
+    "id": "XC255",
+    "name": "40S*300酷丝绵珍珠点",
+    "spec": "17.5*3*23",
+    "material": "40S*150*300T400",
+    "weight": 185.0,
+    "width": 215.0,
+    "price": 5.3
+  },
+  {
+    "id": "XC256",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC257",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC258",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC259",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC260",
+    "name": "40S*150酷丝绵0.5格",
+    "spec": "18*2/3*26",
+    "material": "40S*150T400+300T400",
+    "weight": 108.0,
+    "width": 210.0,
+    "price": 3.5
+  },
+  {
+    "id": "XC261",
+    "name": "80S*75双线格酷丝绵",
+    "spec": "18*3*39",
+    "material": "80S*75T400+150T400",
+    "weight": 87.0,
+    "width": 208.0,
+    "price": 3.8
+  },
+  {
+    "id": "XC262",
+    "name": "T400牛津0.3格",
+    "spec": "16*4*26",
+    "material": "75*2+150*300",
+    "weight": 115.0,
+    "width": 208.0,
+    "price": 3.4
+  },
+  {
+    "id": "XC263",
+    "name": "80S*50酷丝棉0.5格",
+    "spec": "17*3/4+41",
+    "material": "80S*50+200T400",
+    "weight": 70.0,
+    "width": 208.0,
+    "price": 3.7
+  },
+  {
+    "id": "XC264",
+    "name": "40S*150酷丝绵0.3格",
+    "spec": "18*2*25",
+    "material": "40S*150T400*300T400",
+    "weight": 102.0,
+    "width": 215.0,
+    "price": 3.6
+  },
+  {
+    "id": "XC265",
+    "name": "75 T800半光0.5格",
+    "spec": "20*2*36",
+    "material": "75*75*225",
+    "weight": 78.0,
+    "width": 215.0,
+    "price": 3.8
+  },
+  {
+    "id": "XC266",
+    "name": "50D经纬 T8 0.5格",
+    "spec": "22*2*40",
+    "material": "50*50",
+    "weight": 60.0,
+    "width": 220.0,
+    "price": 4.2
+  },
+  {
+    "id": "XC267",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC268",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC269",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC270",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC271",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC272",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC273",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC274",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC275",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC276",
+    "name": "小猫眼",
+    "spec": "23*3+43",
+    "material": "75消低*75半T800",
+    "weight": 105.0,
+    "width": 215.0,
+    "price": 4.0
+  },
+  {
+    "id": "XC277",
+    "name": "半光大猫眼",
+    "spec": "16*4*43",
+    "material": "100半低*150半T800",
+    "weight": 159.0,
+    "width": 212.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC278",
+    "name": "50D低弹*50T800 平纹",
+    "spec": "23*2*40",
+    "material": "50*50",
+    "weight": 50.0,
+    "width": 220.0,
+    "price": 3.6
+  },
+  {
+    "id": "XC279",
+    "name": "30D T8 平纹",
+    "spec": "22*3*57",
+    "material": "30*30",
+    "weight": NaN,
+    "width": 210.0,
+    "price": 4.7
+  },
+  {
+    "id": "XC280",
+    "name": "50D T8 平纹",
+    "spec": "20.5*2*42",
+    "material": "50*50",
+    "weight": 55.0,
+    "width": 222.0,
+    "price": 3.7
+  },
+  {
+    "id": "XC281",
+    "name": "75D经纬T8平纹",
+    "spec": "19*2*30",
+    "material": "75*75",
+    "weight": 62.0,
+    "width": 215.0,
+    "price": 3.0
+  },
+  {
+    "id": "XC282",
+    "name": "75经纬T8 2/2斜",
+    "spec": "19*3*38",
+    "material": "75*75",
+    "weight": 100.0,
+    "width": 208.0,
+    "price": 4.0
+  },
+  {
+    "id": "XC283",
+    "name": "50DT8*50DT8 骑兵斜  ",
+    "spec": "21*3*53",
+    "material": "50DT8*50DT8",
+    "weight": 80.0,
+    "width": 208.0,
+    "price": 4.8
+  },
+  {
+    "id": "XC284",
+    "name": "50D*50D加密T800平纹",
+    "spec": "21*3*47",
+    "material": "50DT8*50DT8",
+    "weight": 73.0,
+    "width": 208.0,
+    "price": 4.0
+  },
+  {
+    "id": "XC285",
+    "name": "T8五面埋伏",
+    "spec": "14*4*38",
+    "material": "75D消光DTY*75DT8",
+    "weight": 85.0,
+    "width": 208.0,
+    "price": 4.0
+  },
+  {
+    "id": "XC286",
+    "name": "50D*100D经纬T800珍珠点",
+    "spec": "21*3*49",
+    "material": "50D*50D*100D T800",
+    "weight": 88.0,
+    "width": 218.0,
+    "price": 4.6
+  },
+  {
+    "id": "XC287",
+    "name": "T800双链条",
+    "spec": "18*3*49",
+    "material": "75*75*150",
+    "weight": 95.0,
+    "width": 208.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC288",
+    "name": "T800牛津-奥特曼",
+    "spec": "16*2*2+30",
+    "material": "100*2+150",
+    "weight": 135.0,
+    "width": 215.0,
+    "price": 3.9
+  },
+  {
+    "id": "XC289",
+    "name": "经消光低弹 纬T800",
+    "spec": "21*2*32",
+    "material": "75*75",
+    "weight": 68.0,
+    "width": 220.0,
+    "price": 2.9
+  },
+  {
+    "id": "XC290",
+    "name": "经消光低弹 双纬T800",
+    "spec": "20*2*28",
+    "material": "75*75*2",
+    "weight": 88.0,
+    "width": 220.0,
+    "price": 3.8
+  },
+  {
+    "id": "XC291",
+    "name": "75D半光T800双纬平纹",
+    "spec": "19*2*26",
+    "material": "75DT8*75DT8*2",
+    "weight": 80.0,
+    "width": 215.0,
+    "price": 3.6
+  },
+  {
+    "id": "XC292",
+    "name": "75消低弹*75T8002/2斜",
+    "spec": "17.5*4*38",
+    "material": "75*75",
+    "weight": 106.0,
+    "width": 215.0,
+    "price": 3.7
+  },
+  {
+    "id": "XC293",
+    "name": "40S*150T800酷丝棉3/2斜  ",
+    "spec": "13.5*4*37",
+    "material": "40S*150T800",
+    "weight": 155.0,
+    "width": 215.0,
+    "price": 5.0
+  },
+  {
+    "id": "XC294",
+    "name": "空变T8平纹",
+    "spec": "19*2*25",
+    "material": "110消空变*150D半T80",
+    "weight": NaN,
+    "width": 215.0,
+    "price": 4.9
+  },
+  {
+    "id": "XC295",
+    "name": "T800消光十面埋伏",
+    "spec": "14*4*43",
+    "material": "经低弹75*75纬T800",
+    "weight": NaN,
+    "width": 208.0,
+    "price": 3.8
+  },
+  {
+    "id": "XC296",
+    "name": "40S*75T8酷丝棉3/1.超钛棉",
+    "spec": "17.5*3*44",
+    "material": "40S*75T800",
+    "weight": 125.0,
+    "width": 215.0,
+    "price": 4.8
+  },
+  {
+    "id": "XC297",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC298",
+    "name": "100D消光75DT800 3/3斜",
+    "spec": "15.5*4*48",
+    "material": "100*75T8",
+    "weight": 124.0,
+    "width": 218.0,
+    "price": 4.8
+  },
+  {
+    "id": "XC299",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC300",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC301",
+    "name": "39梭多乐绵",
+    "spec": "16*4*39",
+    "material": "100D*40S+150DT8",
+    "weight": 150.0,
+    "width": 215.0,
+    "price": 4.7
+  },
+  {
+    "id": "XC302",
+    "name": "34梭多乐绵",
+    "spec": "16*4*34",
+    "material": "100D*40S+150D",
+    "weight": 140.0,
+    "width": 215.0,
+    "price": 4.4
+  },
+  {
+    "id": "XC303",
+    "name": "50D*60S弹力2/2斜",
+    "spec": "21*3*47",
+    "material": "50DT800*60S弹力酷丝绵",
+    "weight": 90.0,
+    "width": 218.0,
+    "price": 4.6
+  },
+  {
+    "id": "XC304",
+    "name": "斜纹毛巾底 ",
+    "spec": "13.5*4*51",
+    "material": "40S*150T8*300低弹",
+    "weight": 215.0,
+    "width": 225.0,
+    "price": 7.0
+  },
+  {
+    "id": "XC305",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC306",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC307",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC308",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC309",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC310",
+    "name": "80S*75酷丝绵骑兵斜",
+    "spec": "18*3*43",
+    "material": "80S*75T400",
+    "weight": 85.0,
+    "width": 215.0,
+    "price": 3.9
+  },
+  {
+    "id": "XC311",
+    "name": "80S*50酷丝绵",
+    "spec": "18*3*43",
+    "material": "80S酷*50DT400",
+    "weight": 73.0,
+    "width": 208.0,
+    "price": 3.9
+  },
+  {
+    "id": "XC312",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC313",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC314",
+    "name": "网纹-180",
+    "spec": "17*4*44",
+    "material": "75D*50S+10DT8",
+    "weight": 116.0,
+    "width": 225.0,
+    "price": 5.4
+  },
+  {
+    "id": "XC315",
+    "name": "网纹-220",
+    "spec": "15*4*44",
+    "material": "100D*35S+150DT8",
+    "weight": 160.0,
+    "width": 215.0,
+    "price": 5.2
+  },
+  {
+    "id": "XC316",
+    "name": "天丝棉",
+    "spec": "20*3*32",
+    "material": "80S*三合一",
+    "weight": 110.0,
+    "width": 188.0,
+    "price": 3.7
+  },
+  {
+    "id": "XC317",
+    "name": "天丝棉",
+    "spec": "21*3*31",
+    "material": "80S*三合一",
+    "weight": 110.0,
+    "width": 208.0,
+    "price": 4.0
+  },
+  {
+    "id": "XC318",
+    "name": "270-钛金棉",
+    "spec": "14*4*26.5",
+    "material": "40S*35S*2",
+    "weight": 205.0,
+    "width": 215.0,
+    "price": 5.5
+  },
+  {
+    "id": "XC319",
+    "name": "40S*35S 酷3/3斜 双龙 ",
+    "spec": "16*4*45",
+    "material": "40S*35S",
+    "weight": 185.0,
+    "width": 218.0,
+    "price": 6.0
+  },
+  {
+    "id": "XC320",
+    "name": "210-钛金棉",
+    "spec": "17*3*27",
+    "material": "40S*30S",
+    "weight": 138.0,
+    "width": 220.0,
+    "price": 4.4
+  },
+  {
+    "id": "XC321",
+    "name": "加厚钛金棉",
+    "spec": "15.5*4*30",
+    "material": "40S*35S*2",
+    "weight": 225.0,
+    "width": 215.0,
+    "price": 6.0
+  },
+  {
+    "id": "XC322",
+    "name": "240-钛金棉",
+    "spec": "17.5*3*31",
+    "material": "40S*30S",
+    "weight": 155.0,
+    "width": 215.0,
+    "price": 5.1
+  },
+  {
+    "id": "XC323",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  },
+  {
+    "id": "XC324",
+    "name": NaN,
+    "spec": NaN,
+    "material": NaN,
+    "weight": NaN,
+    "width": NaN,
+    "price": NaN
+  }
+]
