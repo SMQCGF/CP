@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品规格查询</title>
+
+<style>
+:root {
+    --primary: #2c3e50;
+    --bg: #f4f6f8;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial;
+    background: var(--bg);
+}
+
+header {
+    background: var(--primary);
+    color: #fff;
+    padding: 14px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.search {
+    padding: 10px;
+    background: #fff;
+}
+.search input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.list {
+    padding: 10px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+
+.card h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.card p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 弹窗 */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+}
+
+.modal-content {
+    background: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 8px;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>产品规格查询</header>
+
+<div class="search">
+    <input id="searchInput" placeholder="搜索品名 / 编号">
+</div>
+
+<div class="list" id="list"></div>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">&times;</span>
+<div id="detail"></div>
+</div>
+</div>
+
+<script>
+let products = [];
+
+// 从 products.json 加载数据
+fetch('products.json')
+.then(res => res.json())
+.then(data => {
+    products = data;
+    render(products);
+})
+.catch(err => {
+    document.getElementById("list").innerHTML =
+        "<p style='text-align:center;'>数据加载失败，请检查 products.json</p>";
+});
+
+function render(list) {
+    const el = document.getElementById("list");
+    el.innerHTML = "";
+    if (!list.length) {
+        el.innerHTML = "<p style='text-align:center;'>没有找到匹配的产品</p>";
+        return;
+    }
+    list.forEach(p => {
+        el.innerHTML += `
+        <div class="card" onclick="showDetail('${p.id}')">
+            <h3>${p.name}</h3>
+            <p>编号：${p.id}</p>
+            <p>规格：${p.spec}</p>
+            <p>克重：${p.weight} &nbsp;|&nbsp; 门幅：${p.width}</p>
+        </div>`;
+    });
+}
+
+function showDetail(id) {
+    const p = products.find(x => x.id === id);
+    document.getElementById("detail").innerHTML = `
+        <h3>${p.name}</h3>
+        <p>编号：${p.id}</p>
+        <p>规格：${p.spec}</p>
+        <p>原料：${p.material}</p>
+        <p>克重：${p.weight}</p>
+        <p>门幅：${p.width}</p>
+        <p style="color:#999;">价格：仅内部可见</p>
+    `;
+    document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+document.getElementById("searchInput").addEventListener("input", e => {
+    const v = e.target.value.toLowerCase();
+    const r = products.filter(p =>
+        p.name.toLowerCase().includes(v) ||
+        p.id.toLowerCase().includes(v)
+    );
+    render(r);
+});
+</script>
+
+</body>
+</html>
