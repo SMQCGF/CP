@@ -1,2997 +1,747 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>产品规格表</title>
+    <title>旭辰纺织产品规格</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f5f5f5;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1 {
-            text-align: center;
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background-color: #f8f9fa;
             color: #333;
         }
+
+        /* 顶部标题区域 */
+        .page-header {
+            background-color: #4a69bd;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* 表格头部操作区 */
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-btn {
+            background-color: #4a69bd;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .contact-btn:hover {
+            background-color: #3a5999;
+        }
+
+        /* 联系弹窗 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 2000;
+        }
+
+        .modal-overlay.show {
+            display: block;
+        }
+
+        .contact-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            min-width: 300px;
+            z-index: 2001;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-modal-header h3 {
+            color: #4a69bd;
+            font-size: 18px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .contact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-list a {
+            color: #4a69bd;
+            text-decoration: none;
+        }
+
+        .contact-list a:hover {
+            text-decoration: underline;
+        }
+
+        .password-input-group {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .password-input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .password-input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .password-input-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .price-hidden {
+            color: #ccc;
+            font-style: italic;
+        }
+
+        /* 主要内容区 */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* 搜索框 */
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #searchInput {
+            width: 60%;
+            max-width: 500px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: #4a69bd;
+        }
+
+        /* 表格样式 */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px auto;
+            margin: 20px 0;
             background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
+
         th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
+            padding: 14px 12px;
             text-align: left;
+            border-bottom: 1px solid #eee;
         }
+
         th {
-            background-color: #4CAF50;
+            background-color: #4a69bd;
             color: white;
+            font-weight: 600;
             position: sticky;
             top: 0;
         }
+
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f8f9fa;
         }
+
         tr:hover {
-            background-color: #f5f5d5;
+            background-color: #e9f7fe;
         }
-        .search-container {
-            margin: 20px auto;
-            text-align: center;
+
+        /* 页脚样式 */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
         }
-        #searchInput {
-            width: 50%;
-            padding: 12px;
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h4 {
             font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            margin-bottom: 15px;
+            color: #4a69bd;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 5px 0;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .footer-bottom a {
+            color: #4a69bd;
+            text-decoration: none;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            #searchInput {
+                width: 90%;
+            }
+
+            th, td {
+                padding: 10px 8px;
+                font-size: 14px;
+            }
+
+            .contact-modal {
+                width: 90%;
+                min-width: auto;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>产品规格表</h1>
+    <!-- 顶部标题 -->
+    <header class="page-header">
+        <h1>旭辰纺织产品规格</h1>
+    </header>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="搜索产品编号、品名...">
+    <!-- 主要内容 -->
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="搜索产品编号、品名...">
+        </div>
+
+        <div class="table-header">
+            <span></span> <!-- 占位 -->
+            <button class="contact-btn" onclick="openContactModal()">联系</button>
+        </div>
+
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>品名</th>
+                    <th>规格</th>
+                    <th>原料</th>
+                    <th>克重</th>
+                    <th>门幅</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 产品数据开始 -->
+                <tr><td>XC001</td><td>1 * 1半光横条</td><td>17.5 * 3 * 27</td><td>75 * 75 * 150</td><td>79.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC002</td><td>1 * 1消光横条</td><td>17.5 * 3 * 28</td><td>75 * 75 * 150</td><td>80.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC003</td><td>1 * 1消光横条加密</td><td>17.5 * 3 * 32</td><td>75 * 75 * 150</td><td>85.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC004</td><td>1 * 2半光横条</td><td>17.5 * 3 * 28</td><td>75 * 75 * 150</td><td>78.0</td><td>165.0</td><td class="price-cell">2.4</td></tr>
+                <tr><td>XC005</td><td>1 * 3半光横条</td><td>17.5 * 3 * 28</td><td>75 * 75 * 150</td><td>78.0</td><td>165.0</td><td class="price-cell">2.4</td></tr>
+                <tr><td>XC006</td><td>2 * 2半光横条</td><td>17.5 * 3 * 28</td><td>75 * 75 * 150</td><td>80.0</td><td>165.0</td><td class="price-cell">2.4</td></tr>
+                <tr><td>XC007</td><td>150 * 300半光横条</td><td>17.5 * 3 * 22</td><td>75 * 150 * 300</td><td>105.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC008</td><td>150 * 300消光横条</td><td>17.5 * 3 * 22</td><td>75 * 150 * 300</td><td>103.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC009</td><td>240T 0.15浮格</td><td>17.5 * 3 * 28</td><td>75 * 75 * 150</td><td>73.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC010</td><td>240T 0.15 * 0.18平格</td><td>17.5 * 3 * 28</td><td>75 * 75 * 150</td><td>70.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC011</td><td>240T 0.2半光平格</td><td>17.5 * 3 * 27</td><td>75 * 75 * 150</td><td>70.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC012</td><td>240T 0.2消光平格</td><td>17.5 * 3 * 27</td><td>75 * 75 * 150</td><td>70.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC013</td><td>240T 0.2浮格</td><td>17.5 * 3 * 28</td><td>75 * 75 * 150</td><td>70.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC014</td><td>240T 0.3浮格</td><td>17.5 * 3 * 29</td><td>75 * 75 * 150</td><td>71.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC015</td><td>240T 0.3三线格</td><td>17.5 * 3 * 28</td><td>75 * 75 * 150</td><td>79.0</td><td>165.0</td><td class="price-cell">2.4</td></tr>
+                <tr><td>XC016</td><td>240T 0.1浮格</td><td>17.5 * 3 * 28</td><td>75 * 75 * 150</td><td>73.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC017</td><td>240T 0.2半光花格</td><td>17.5 * 3 * 28</td><td>75 * 75</td><td>67.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC018</td><td>260T 0.15半光花格</td><td>20 * 3 * 34</td><td>75 * 75</td><td>82.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC019</td><td>300T 0.1半光平格</td><td>22 * 3 * 37</td><td>50 * 50 * 100</td><td>68.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC020</td><td>300T 0.15半光平格</td><td>22 * 3 * 37</td><td>50 * 50 * 100</td><td>68.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC021</td><td>300T 0.2消光平格</td><td>22 * 3 * 37</td><td>50 * 50 * 100</td><td>65.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC022</td><td>300T 0.2半光双线格</td><td>22 * 3 * 41</td><td>50 * 50 * 100</td><td>68.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC023</td><td>300T 0.2消光双线格</td><td>22 * 3 * 41</td><td>50 * 50 * 100</td><td>68.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC024</td><td>300T 0.3消光双线格</td><td>22 * 3 * 41</td><td>50 * 50 * 100</td><td>68.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC025</td><td>26梭  消光双线分格</td><td>20 * 3 * 26</td><td>75 * 75 * 150</td><td>75.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC026</td><td>33梭  消光双线分格</td><td>20 * 3 * 33</td><td>75 * 75 * 150</td><td>84.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC027</td><td>300T 0.3半光浮格</td><td>21 * 3 * 41</td><td>50 * 50 * 100</td><td>68.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC028</td><td>300T 0.2半光单线格</td><td>22 * 3 * 38</td><td>50 * 50 * 100</td><td>68.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC029</td><td>300T 0.3半光双线格</td><td>22 * 3 * 39</td><td>50 * 50 * 100</td><td>70.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC030</td><td>300T 0.12消光平格</td><td>22 * 3 * 40</td><td>50 * 50 * 100</td><td>65.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC031</td><td>300T 0.3半光平格</td><td>22 * 3 * 37</td><td>50 * 50 * 100</td><td>65.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC032</td><td>300T 0.2半光平格</td><td>22 * 3 * 37</td><td>50 * 50 * 100</td><td>65.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC033</td><td>0.15消光桃皮格</td><td>18 * 3+33</td><td>75 * 150 * 300</td><td>118.0</td><td>173.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC034</td><td>0.2桃皮格</td><td>17.5 * 3 * 22</td><td>75 * 150 * 300</td><td>95.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC035</td><td>0.25桃皮格</td><td>17.5 * 3 * 26</td><td>75 * 150 * 300</td><td>103.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC036</td><td>0.5  半光绒格</td><td>17.5 * 3 * 31</td><td>75 * 150 * 300</td><td>101.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC037</td><td>塔丝绒0.25格</td><td>17.5 * 3 * 27</td><td>75 * 160 * 320</td><td>90.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC038</td><td>240T 0.5格</td><td>17.5 * 3 * 31</td><td>75 * 75 * 150</td><td>71.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC039</td><td>高弹米通</td><td>20 * 3 * 34</td><td>50 * 50 * 100</td><td>70.0</td><td>188.0</td><td class="price-cell">2.4</td></tr>
+                <tr><td>XC040</td><td>75 * 50+150单层米通</td><td>17.5 * 3 * 28</td><td>75 * 50 * 150</td><td>72.0</td><td>165.0</td><td class="price-cell">2.4</td></tr>
+                <tr><td>XC041</td><td>75 * 75+150单层米通</td><td>17.5 * 3 * 32</td><td>75 * 75 * 150</td><td>88.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC042</td><td>50 * 50+150单层米通</td><td>22 * 3 * 37</td><td>50 * 50 * 150</td><td>76.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC043</td><td>50 * 50+100单层米通</td><td>23 * 3 * 37</td><td>50 * 50 * 50 * 2</td><td>72.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC044</td><td>50S消光珍珠点50 * 50 * 150</td><td>23 * 3+50</td><td>50 * 50 * 150</td><td>90.0</td><td>165.0</td><td class="price-cell">4.7</td></tr>
+                <tr><td>XC045</td><td>半光珍珠点75 * 150 * 300</td><td>17.5 * 3 * 28</td><td>75 * 150 * 300</td><td>110.0</td><td>165.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC046</td><td>半光珍珠点50 * 50 * 150</td><td>22 * 3 * 40</td><td>50 * 50 * 150</td><td>73.0</td><td>165.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC047</td><td>消光珍珠点50 * 50 * 150</td><td>22 * 3+40</td><td>50 * 50 * 150</td><td>77.0</td><td>165.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC048</td><td>消光珍珠点75 * 75 * 150</td><td>17.5 * 3 * 29</td><td>75 * 75 * 150</td><td>85.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC049</td><td>半光珍珠点75 * 75 * 300</td><td>17.5 * 3 * 29</td><td>75 * 75 * 300</td><td>92.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC050</td><td>消光珍珠点75 * 75 * 300</td><td>17.5 * 3 * 29</td><td>75 * 75 * 300</td><td>92.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC051</td><td>半光珍珠点75 * 75 * 150</td><td>17.5 * 3 * 29</td><td>75 * 75 * 150</td><td>85.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC052</td><td>消光珍珠点75 * 150 * 300</td><td>17.5 * 3 * 29</td><td>75 * 150 * 300</td><td>115.0</td><td>165.0</td><td class="price-cell">3.3</td></tr>
+                <tr><td>XC053</td><td>纬高弹珍珠点</td><td>19.5 * 4 * 36</td><td>75 * 75 * 150</td><td>110.0</td><td>184.0</td><td class="price-cell">3.8</td></tr>
+                <tr><td>XC054</td><td>150消光高弹</td><td>13 * 2 * 25</td><td>150 * 150</td><td>90.0</td><td>188.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC055</td><td>150半光高弹</td><td>14 * 2 * 25</td><td>150 * 150</td><td>90.0</td><td>188.0</td><td class="price-cell">2.1</td></tr>
+                <tr><td>XC056</td><td>75D半光高弹</td><td>19 * 2 * 31</td><td>75 * 75</td><td>61.0</td><td>188.0</td><td class="price-cell">2.0</td></tr>
+                <tr><td>XC057</td><td>50D消光高弹</td><td>20 * 2 * 38</td><td>50 * 50</td><td>49.0</td><td>188.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC058</td><td>天丝条</td><td>17 * 3 * 31</td><td>75 * 150</td><td>100.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC059</td><td>半光满天星</td><td>17.5 * 3 * 31</td><td>75 * 150</td><td>100.0</td><td>165.0</td><td class="price-cell">3.2</td></tr>
+                <tr><td>XC060</td><td>150D消光平纹桃皮绒30</td><td>17.5 * 3 * 30</td><td>75 * 150</td><td>95.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC061</td><td>加密半光斜桃</td><td>18 * 3 * 34</td><td>75 * 150</td><td>108.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC062</td><td>150D消光桃皮绒27</td><td>17.5 * 3 * 27</td><td>75 * 150</td><td>91.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC063</td><td>200D平纹桃皮绒</td><td>17.5 * 3 * 25</td><td>75 * 200</td><td>98.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC064</td><td>消光斜桃1/2斜桃</td><td>17.5 * 3 * 33</td><td>75 * 150</td><td>103.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC065</td><td>消光斜桃2/2斜桃</td><td>20 * 3 * 34</td><td>75 * 150</td><td>108.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC066</td><td>75D消光双纬四季纺</td><td>20 * 3 * 30</td><td>75+75 * 2</td><td>105.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC067</td><td>210T半光春亚纺</td><td>22 * 2 * 32</td><td>75 * 75</td><td>60.0</td><td>165.0</td><td class="price-cell">2.0</td></tr>
+                <tr><td>XC068</td><td>240T半光春亚纺</td><td>17.5 * 3 * 32</td><td>75 * 75</td><td>70.0</td><td>165.0</td><td class="price-cell">2.1</td></tr>
+                <tr><td>XC069</td><td>240T消光春亚纺</td><td>17.5 * 3 * 32</td><td>75 * 75</td><td>70.0</td><td>165.0</td><td class="price-cell">2.2</td></tr>
+                <tr><td>XC070</td><td>240T消光1/2春亚纺</td><td>17.5 * 3 * 32</td><td>75 * 75</td><td>72.0</td><td>165.0</td><td class="price-cell">2.1</td></tr>
+                <tr><td>XC071</td><td>240T半光2/2春亚纺</td><td>17.5 * 3 * 30</td><td>75 * 75</td><td>77.0</td><td>165.0</td><td class="price-cell">2.1</td></tr>
+                <tr><td>XC072</td><td>240T消光2/2春亚纺</td><td>17.5 * 3 * 32</td><td>75 * 75</td><td>72.0</td><td>165.0</td><td class="price-cell">2.2</td></tr>
+                <tr><td>XC073</td><td>260T消光春亚纺</td><td>20 * 3 * 35</td><td>75 * 75</td><td>80.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC074</td><td>260T消光1/2春亚纺</td><td>20 * 3 * 35</td><td>75 * 75</td><td>80.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC075</td><td>260T消光2/2春亚纺</td><td>20 * 3 * 35</td><td>75 * 75</td><td>82.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC076</td><td>300半光春亚纺</td><td>22 * 3 * 40</td><td>50 * 50</td><td>60.0</td><td>165.0</td><td class="price-cell">2.2</td></tr>
+                <tr><td>XC077</td><td>300消光春亚纺</td><td>23 * 3 * 40</td><td>50 * 50</td><td>63.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC078</td><td>300T半光春亚纺144F</td><td>19 * 3 * 50</td><td>50 * 50</td><td>64.0</td><td>174.0</td><td class="price-cell">2.4</td></tr>
+                <tr><td>XC079</td><td>310T消光春亚纺</td><td>23.5 * 3 * 42</td><td>50 * 50</td><td>65.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC080</td><td>300T半光2/1斜</td><td>22 * 3 * 40</td><td>50 * 50</td><td>60.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC081</td><td>50D 320T消光2/2斜</td><td>23 * 3 * 46</td><td>50 * 50</td><td>68.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC082</td><td>75D 320T消光2/2斜</td><td>23 * 3 * 46</td><td>75 * 75</td><td>98.0</td><td>165.0</td><td class="price-cell">3.2</td></tr>
+                <tr><td>XC083</td><td>300T半光高F涤塔夫</td><td>19 * 3 * 50</td><td>50 * 50</td><td>64.0</td><td>174.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC084</td><td>300T消光高F涤塔夫</td><td>19 * 3 * 50</td><td>50 * 50</td><td>64.0</td><td>174.0</td><td class="price-cell">2.2</td></tr>
+                <tr><td>XC085</td><td>320T半光春亚纺</td><td>23 * 3 * 46</td><td>50 * 50</td><td>65.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC086</td><td>320T消光春亚纺</td><td>23 * 3 * 46</td><td>50 * 50</td><td>65.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC087</td><td>320T消光春亚纺2/1斜</td><td>23 * 3 * 46</td><td>50 * 50</td><td>65.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC088</td><td>320T高F半光春亚纺</td><td>23 * 3+46</td><td>50 * 50</td><td>68.0</td><td>174.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC089</td><td>330T高F半光春亚纺</td><td>23 * 3+46</td><td>50 * 65（192）</td><td>78.0</td><td>174.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC090</td><td>350T高F半光春亚纺</td><td>20 * 4 * 46</td><td>50 * 50</td><td>82.0</td><td>174.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC091</td><td>260T半光春亚纺</td><td>20 * 3 * 35</td><td>75 * 75</td><td>82.0</td><td>165.0</td><td class="price-cell">2.2</td></tr>
+                <tr><td>XC092</td><td>280T消光春亚纺</td><td>21 * 3 * 38</td><td>75 * 75</td><td>92.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC093</td><td>260T半光2/2春亚纺</td><td>20 * 3 * 35</td><td>75 * 75</td><td>82.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC094</td><td>0.15菱形格75 * 75</td><td>17.5 * 3 * 35</td><td>75 * 75</td><td>75.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC095</td><td>0.18菱形格75 * 75</td><td>17.5 * 3 * 30</td><td>75 * 75</td><td>70.0</td><td>165.0</td><td class="price-cell">2.2</td></tr>
+                <tr><td>XC096</td><td>0.18菱形格75 * 150</td><td>17.5 * 3 * 30</td><td>75 * 150</td><td>94.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC097</td><td>0.2菱形格75 * 75</td><td>17.5 * 3 * 32</td><td>75 * 75</td><td>72.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC098</td><td>300T0.1长丝菱形格</td><td>19 * 3 * 50</td><td>50 * 50</td><td>68.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC099</td><td>300T0.1弹丝菱形格</td><td>22 * 3 * 40</td><td>50 * 50</td><td>63.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC100</td><td>消半弹丝双线菱形格</td><td>21 * 3 * 45</td><td>50 * 50</td><td>65.0</td><td>165.0</td><td class="price-cell">3.3</td></tr>
+                <tr><td>XC101</td><td>消光塔丝绒牛津</td><td>12 * 4 * 18</td><td>150 * 2+160 * 2</td><td>148.0</td><td>165.0</td><td class="price-cell">3.4</td></tr>
+                <tr><td>XC102</td><td>双经双纬消光牛津</td><td>19 * 2 * 2+26</td><td>75 * 2+75 * 2</td><td>113.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC103</td><td>19S单经双纬消光牛津</td><td>18 * 2 * 19</td><td>150 * 150 * 2</td><td>125.0</td><td>165.0</td><td class="price-cell">3.3</td></tr>
+                <tr><td>XC104</td><td>17S单经双纬消光牛津</td><td>18 * 2 * 17</td><td>150 * 150 * 2</td><td>118.0</td><td>165.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC105</td><td>300 * 300牛津</td><td>12 * 4 * 18</td><td>150 * 2+150 * 2</td><td>140.0</td><td>165.0</td><td class="price-cell">3.3</td></tr>
+                <tr><td>XC106</td><td>34梭 米字格</td><td>17.5 * 3 * 34</td><td>75 * 75 * 150</td><td>79.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC107</td><td>300T 半光城墙格</td><td>22 * 3 * 41</td><td>50 * 75</td><td>70.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC108</td><td>240T 0.3半光足球格</td><td>17.5 * 3 * 31</td><td>75 * 75</td><td>69.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC109</td><td>0.3消光足球格</td><td>17.5 * 3 * 25</td><td>75 * 150</td><td>88.0</td><td>165.0</td><td class="price-cell">3.4</td></tr>
+                <tr><td>XC110</td><td>双线消光弹丝罗马格套格</td><td>23 * 3 * 40</td><td>50 * 50</td><td>60.0</td><td>165.0</td><td class="price-cell">3.2</td></tr>
+                <tr><td>XC111</td><td>75 * 150满天星</td><td>17.5 * 3 * 31</td><td>75 * 150</td><td>93.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC112</td><td>半光骑兵斜</td><td>17.5 * 3 * 32</td><td>75 * 75</td><td>72.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC113</td><td>消光骑兵斜</td><td>17.5 * 3 * 32</td><td>75 * 150</td><td>100.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC114</td><td>75D 弹丝意大利点</td><td>21 * 3 * 33</td><td>75 * 75</td><td>76.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC115</td><td>300T 消光华夫格</td><td>22 * 3 * 42</td><td>50 * 50</td><td>61.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC116</td><td>240T 半光梅花格</td><td>17.5 * 3 * 32</td><td>75 * 75</td><td>70.0</td><td>165.0</td><td class="price-cell">2.4</td></tr>
+                <tr><td>XC117</td><td>370T消光2/1斜</td><td>21 * 4 * 46</td><td>50 * 50</td><td>76.0</td><td>165.0</td><td class="price-cell">3.2</td></tr>
+                <tr><td>XC118</td><td>370T消光2/2斜</td><td>21 * 4 * 46</td><td>50 * 50</td><td>76.0</td><td>165.0</td><td class="price-cell">3.2</td></tr>
+                <tr><td>XC119</td><td>240T 消光人字斜</td><td>17.5 * 3 * 28</td><td>75 * 150</td><td>92.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC120</td><td>240T 半光菱中点</td><td>17.5 * 3 * 35</td><td>75 * 75</td><td>72.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC121</td><td>240T 消光斜格</td><td>17.5 * 3 * 28</td><td>75 * 150</td><td>92.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC122</td><td>导电斜纹舒美绸</td><td>19 * 3 * 37</td><td>63 * 50</td><td>68.0</td><td>165.0</td><td class="price-cell">2.2</td></tr>
+                <tr><td>XC123</td><td>韩国绒 189上机</td><td>18 * 4 * 25</td><td>75/144 * 150/288</td><td>105.0</td><td>189.0</td><td class="price-cell">3.5</td></tr>
+                <tr><td>XC124</td><td>变化斜</td><td>17.5 * 3 * 29</td><td>75 * 150</td><td>92.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC125</td><td>240T 消光格中点</td><td>17.5 * 3 * 28</td><td>75 * 75 * 150</td><td>70.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC126</td><td>240T 加密消光格中点</td><td>17.5 * 3 * 36</td><td>75 * 75 * 100 * 2</td><td>86.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC127</td><td>消光双线浮点</td><td>21 * 3 * 33</td><td>75 * 75 * 150</td><td>84.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC128</td><td>消光乱格</td><td>17.5 * 3 * 29</td><td>75 * 150 * 300</td><td>92.0</td><td>165.0</td><td class="price-cell">3.2</td></tr>
+                <tr><td>XC129</td><td>75 * 75 弹丝小蜂巢</td><td>17.5 * 3 * 29</td><td>75 * 75</td><td>70.0</td><td>165.0</td><td class="price-cell">2.2</td></tr>
+                <tr><td>XC130</td><td>75 * 150弹丝小蜂巢</td><td>17 * 3 * 28</td><td>75 * 150</td><td>90.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC131</td><td>75 * 300弹丝半光大蜂巢</td><td>17.5 * 3 * 23</td><td>75 * 300</td><td>120.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC132</td><td>塔丝绒小蜂巢</td><td>17.5 * 3 * 32</td><td>75 * 160</td><td>98.0</td><td>165.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC133</td><td>多孔格</td><td>17.5 * 3 * 29</td><td>75+112 * 75 * 112</td><td>nan</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC134</td><td>228涤纶半光塔丝绒</td><td>17.5 * 3 * 26</td><td>75 * 160</td><td>88.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC135</td><td>228涤纶消光塔丝绒</td><td>17.5 * 3 * 26</td><td>75 * 160</td><td>88.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC136</td><td>320半光涤纶塔丝绒</td><td>17.5 * 3 * 17</td><td>75 * 160 * 2</td><td>103.0</td><td>165.0</td><td class="price-cell">2.7</td></tr>
+                <tr><td>XC137</td><td>320消光涤纶塔丝绒</td><td>17.5 * 3 * 17.5</td><td>75 * 160 * 2</td><td>102.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC138</td><td>320消光涤纶塔丝绒19S</td><td>17.5 * 3 * 19</td><td>75 * 160 * 2</td><td>110.0</td><td>165.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC139</td><td>320消光涤纶塔丝绒20.5S</td><td>17.5 * 3 * 20.5</td><td>75 * 160 * 2</td><td>113.0</td><td>165.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC140</td><td>30S 228涤纶消光塔丝绒</td><td>17.5 * 3 * 30</td><td>75 * 160</td><td>95.0</td><td>165.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC141</td><td>75D  弹丝半光罗马格</td><td>17.5 * 3 * 32</td><td>75 * 75</td><td>72.0</td><td>165.0</td><td class="price-cell">2.3</td></tr>
+                <tr><td>XC142</td><td>300T 长丝罗马格</td><td>22 * 3 * 40</td><td>50 * 50</td><td>57.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC143</td><td>300T 消光弹丝罗马格</td><td>22 * 3 * 40</td><td>50 * 50</td><td>62.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC144</td><td>300T 半光弹丝罗马格</td><td>22 * 3 * 40</td><td>50 * 50</td><td>62.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC145</td><td>300T 消光弹丝阴阳格</td><td>22 * 3 * 40</td><td>50 * 50</td><td>62.0</td><td>165.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC146</td><td>300T 半光弹丝阴阳格</td><td>22 * 3 * 40</td><td>50 * 50</td><td>62.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC147</td><td>提点(左右点)</td><td>17.5 * 3 * 32</td><td>75 * 75</td><td>70.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC148</td><td>窗户格</td><td>17.5 * 3 * 24</td><td>75 * 150 * 300</td><td>95.0</td><td>165.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC149</td><td>细密斜</td><td>19 * 4 * 41</td><td>50 * 50 * 2</td><td>97.0</td><td>165.0</td><td class="price-cell">3.3</td></tr>
+                <tr><td>XC150</td><td>75D  弹丝半光阴阳格</td><td>17.5 * 3 * 32</td><td>75 * 75</td><td>72.0</td><td>165.0</td><td class="price-cell">2.5</td></tr>
+                <tr><td>XC151</td><td>36S T400破卡 208</td><td>17 * 4 * 36</td><td>75消*75T400</td><td>90.0</td><td>208.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC152</td><td>43S T400破卡 216</td><td>18 * 4 * 43</td><td>75消*75T400</td><td>100.0</td><td>216.0</td><td class="price-cell">3.7</td></tr>
+                <tr><td>XC153</td><td>王者荣耀  208</td><td>17 * 3 * 45</td><td>75 * 75T400 * 150</td><td>96.0</td><td>208.0</td><td class="price-cell">3.5</td></tr>
+                <tr><td>XC154</td><td>王者荣耀  220</td><td>17 * 3 * 45</td><td>75 * 75T400 * 150</td><td>95.0</td><td>220.0</td><td class="price-cell">3.7</td></tr>
+                <tr><td>XC155</td><td>T400老珍珠点</td><td>17 * 3 * 56</td><td>75 * 75T400 * 150</td><td>107.0</td><td>215.0</td><td class="price-cell">4.5</td></tr>
+                <tr><td>XC156</td><td>38S T400破卡 208</td><td>17 * 4 * 38</td><td>75消*75T400</td><td>92.0</td><td>208.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC157</td><td>T400王者归来</td><td>18 * 3 * 47</td><td>75 * 75T400 * 150</td><td>94.0</td><td>225.0</td><td class="price-cell">3.6</td></tr>
+                <tr><td>XC158</td><td>高弹水波纹</td><td>10 * 4 * 22</td><td>150 * 150</td><td>120.0</td><td>199.0</td><td class="price-cell">3.4</td></tr>
+                <tr><td>XC159</td><td>T400酷丝千鸟格</td><td>15 * 3 * 42</td><td>60S*75T400</td><td>85.0</td><td>220.0</td><td class="price-cell">5.5</td></tr>
+                <tr><td>XC160</td><td>25梭T400无捻牛津</td><td>17 * 2 * 25</td><td>75 * 2 * 150T400</td><td>104.0</td><td>208.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC161</td><td>纬捻T400双经单纬牛津</td><td>18 * 2 * 27</td><td>75 * 2 * 150T400</td><td>117.0</td><td>208.0</td><td class="price-cell">4.2</td></tr>
+                <tr><td>XC162</td><td>全捻T400双经单纬牛津</td><td>18 * 2 * 28</td><td>75 * 2 * 150T400</td><td>117.0</td><td>208.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC163</td><td>27梭T400无捻牛津</td><td>17 * 2 * 27</td><td>75 * 2 * 150T400</td><td>110.0</td><td>208.0</td><td class="price-cell">3.3</td></tr>
+                <tr><td>XC164</td><td>26梭T400无捻牛津</td><td>17 * 2 * 26</td><td>75 * 2 * 150T400</td><td>108.0</td><td>208.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC165</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC166</td><td>50S*50S弹力 酷丝棉平纹</td><td>17 * 2 * 30</td><td>50S*50S</td><td>80.0</td><td>220.0</td><td class="price-cell">4.3</td></tr>
+                <tr><td>XC167</td><td>40S*40S弹力 酷丝棉平纹</td><td>18 * 2 * 27</td><td>40S*40S</td><td>110.0</td><td>208.0</td><td class="price-cell">4.2</td></tr>
+                <tr><td>XC168</td><td>40S*75T 酷丝棉平纹</td><td>18 * 2 * 30</td><td>40S*75T400</td><td>83.0</td><td>208.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC169</td><td>40S*75D 酷丝棉2/1</td><td>17 * 3 * 35</td><td>40S*75T400</td><td>110.0</td><td>215.0</td><td class="price-cell">3.8</td></tr>
+                <tr><td>XC170</td><td>40S*75D 酷丝棉2/2</td><td>17.5 * 3 * 35</td><td>40S*75T400</td><td>112.0</td><td>215.0</td><td class="price-cell">3.8</td></tr>
+                <tr><td>XC171</td><td>40S*75D 酷丝棉骑兵斜</td><td>17.5 * 3 * 35</td><td>40S*75T400</td><td>112.0</td><td>215.0</td><td class="price-cell">3.9</td></tr>
+                <tr><td>XC172</td><td>40S*150 酷丝棉26S平纹</td><td>18 * 2 * 26</td><td>40S*150T400</td><td>102.0</td><td>210.0</td><td class="price-cell">3.4</td></tr>
+                <tr><td>XC173</td><td>40S*150 酷丝棉2/1</td><td>17 * 3 * 30</td><td>40S*150T400</td><td>130.0</td><td>215.0</td><td class="price-cell">4.1</td></tr>
+                <tr><td>XC174</td><td>40S*150D 酷丝棉2/2</td><td>17.5 * 3 * 29</td><td>40S*150T400</td><td>135.0</td><td>215.0</td><td class="price-cell">4.3</td></tr>
+                <tr><td>XC175</td><td>40S*150D 酷丝棉骑兵斜</td><td>17.5 * 3 * 29</td><td>40S*150T400</td><td>135.0</td><td>215.0</td><td class="price-cell">4.4</td></tr>
+                <tr><td>XC176</td><td>40S*150 酷丝棉3/2斜</td><td>13.5 * 4 * 35</td><td>40S*150T400</td><td>150.0</td><td>215.0</td><td class="price-cell">4.9</td></tr>
+                <tr><td>XC177</td><td>40S*150 酷丝棉28S平纹</td><td>18 * 2 * 28</td><td>40S*150T400</td><td>106.0</td><td>210.0</td><td class="price-cell">3.6</td></tr>
+                <tr><td>XC178</td><td>40S*150 酷丝棉平纹 28梭</td><td>19 * 2 * 28</td><td>40S*150T400</td><td>110.0</td><td>208.0</td><td class="price-cell">3.7</td></tr>
+                <tr><td>XC179</td><td>40S*150 酷丝棉24S平纹</td><td>18 * 2 * 24</td><td>40S*150T400</td><td>96.0</td><td>208.0</td><td class="price-cell">2.8</td></tr>
+                <tr><td>XC180</td><td>40S*150 酷丝棉3/3斜</td><td>13.5 * 4 * 35</td><td>40S*150T400</td><td>150.0</td><td>215.0</td><td class="price-cell">4.5</td></tr>
+                <tr><td>XC181</td><td>50S*75D 酷丝棉2/2</td><td>19 * 3 * 37</td><td>50S*75</td><td>108.0</td><td>215.0</td><td class="price-cell">4.6</td></tr>
+                <tr><td>XC182</td><td>50S*75D 酷丝棉绮兵</td><td>19 * 3 * 37</td><td>50S*75</td><td>108.0</td><td>215.0</td><td class="price-cell">4.7</td></tr>
+                <tr><td>XC183</td><td>50S*75D酷丝绵人字斜</td><td>18 * 3 * 36</td><td>50S*75T400</td><td>150.0</td><td>215.0</td><td class="price-cell">5.3</td></tr>
+                <tr><td>XC184</td><td>40S*75 酷丝棉3/3斜</td><td>13.5 * 4 * 35</td><td>40S*75T400</td><td>112.0</td><td>215.0</td><td class="price-cell">3.7</td></tr>
+                <tr><td>XC185</td><td>50S*75D 酷丝棉2/1</td><td>19 * 3 * 37</td><td>50S*75</td><td>108.0</td><td>215.0</td><td class="price-cell">4.6</td></tr>
+                <tr><td>XC186</td><td>40S*150D 酷丝棉骑兵斜</td><td>17.5 * 3 * 35</td><td>40S*150T400</td><td>150.0</td><td>215.0</td><td class="price-cell">4.6</td></tr>
+                <tr><td>XC187</td><td>40S*75 酷丝棉3/2斜</td><td>17.5 * 3 * 34</td><td>40S*75DT400</td><td>110.0</td><td>215.0</td><td class="price-cell">3.8</td></tr>
+                <tr><td>XC188</td><td>40S*150 酷丝棉5/1斜</td><td>13.5 * 4 * 35</td><td>40S*150T400</td><td>150.0</td><td>215.0</td><td class="price-cell">4.6</td></tr>
+                <tr><td>XC189</td><td>100 * 150T8 4/2斜</td><td>17 * 4 * 225 * 44</td><td>100D*150T800</td><td>177.0</td><td>225.0</td><td class="price-cell">5.4</td></tr>
+                <tr><td>XC190</td><td>40S*150D 酷丝棉2/2</td><td>17.5 * 3 * 35</td><td>40S*150T400</td><td>150.0</td><td>215.0</td><td class="price-cell">4.4</td></tr>
+                <tr><td>XC191</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC192</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC193</td><td>75 * 150T400 消3/3斜</td><td>17 * 4 * 36</td><td>75 * 150</td><td>138.0</td><td>225.0</td><td class="price-cell">4.3</td></tr>
+                <tr><td>XC194</td><td>75 * 75T400消 3/3斜</td><td>20 * 4 * 45</td><td>75 * 75</td><td>110.0</td><td>208.0</td><td class="price-cell">4.0</td></tr>
+                <tr><td>XC195</td><td>75 * 75 半光2/2 斜</td><td>18 * 4 * 46</td><td>75半*75T400</td><td>105.0</td><td>215.0</td><td class="price-cell">4.2</td></tr>
+                <tr><td>XC196</td><td>75 * 75 消光2/2 斜</td><td>18 * 4 * 43</td><td>75消*75T400</td><td>100.0</td><td>215.0</td><td class="price-cell">3.7</td></tr>
+                <tr><td>XC197</td><td>75 * 150 消光2/2 斜</td><td>18 * 4 * 36</td><td>75消*150T400</td><td>129.0</td><td>215.0</td><td class="price-cell">4.0</td></tr>
+                <tr><td>XC198</td><td>75 * 75-T800消光骑士斜</td><td>17 * 4 * 38</td><td>75消*75T800</td><td>95.0</td><td>215.0</td><td class="price-cell">3.7</td></tr>
+                <tr><td>XC199</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC200</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC201</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC202</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC203</td><td>360T 0.1消光平格</td><td>24 * 3 * 50</td><td>30 * 30 * 60</td><td>nan</td><td>175.0</td><td class="price-cell">3.2</td></tr>
+                <tr><td>XC204</td><td>30D380T半光春亚纺</td><td>25 * 3+60</td><td>30 * 30</td><td>47.0</td><td>174.0</td><td class="price-cell">3.6</td></tr>
+                <tr><td>XC205</td><td>30D360T半光0.15双线格</td><td>25 * 3+52</td><td>30 * 30</td><td>47.0</td><td>174.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC206</td><td>十字格</td><td>22 * 3 * 41</td><td>50 * 75</td><td>nan</td><td>165.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC207</td><td>420T消光2/2斜</td><td>19 * 5 * 45</td><td>75 * 75</td><td>130.0</td><td>170.0</td><td class="price-cell">3.8</td></tr>
+                <tr><td>XC208</td><td>六边格</td><td>17.5 * 3 * 30</td><td>75 * 150</td><td>nan</td><td>165.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC209</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC210</td><td>芬迪格</td><td>19 * 3 * 39</td><td>75 * 75</td><td>90.0</td><td>174.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC211</td><td>X字格</td><td>16 * 4 * 46</td><td>50 * 50</td><td>62.0</td><td>175.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC212</td><td>400半光春亚纺</td><td>25 * 3 * 63</td><td>30 * 30</td><td>52.0</td><td>178.0</td><td class="price-cell">2.6</td></tr>
+                <tr><td>XC213</td><td>消光四线格</td><td>16 * 4 * 46</td><td>50 * 50</td><td>65.0</td><td>175.0</td><td class="price-cell">3.3</td></tr>
+                <tr><td>XC214</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC215</td><td>50D消光三竖一横</td><td>18 * 3/5+46</td><td>50*（50+50 * 2）</td><td>69.0</td><td>170.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC216</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC217</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC218</td><td>阳离子米通</td><td>18 * 3 * 33</td><td>75 * 75+150</td><td>90.0</td><td>173.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC219</td><td>T400横条2 * 1</td><td>16 * 4+30</td><td>100 * 75 * 150</td><td>128.0</td><td>215.0</td><td class="price-cell">3.5</td></tr>
+                <tr><td>XC220</td><td>T400横条1 * 4</td><td>17 * 4+38</td><td>75 * 75 * 150</td><td>100.0</td><td>208.0</td><td class="price-cell">3.3</td></tr>
+                <tr><td>XC221</td><td>T400横条1 * 1</td><td>16 * 4 * 30</td><td>100 * 75 * 150</td><td>115.0</td><td>215.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC222</td><td>T800米兰条</td><td>18 * 3 * 32</td><td>75 * 75 * 150</td><td>95.0</td><td>220.0</td><td class="price-cell">3.5</td></tr>
+                <tr><td>XC223</td><td>40S*75闪电斜</td><td>18 * 3 * 38</td><td>40S*75</td><td>120.0</td><td>215.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC224</td><td>40S*150酷丝棉 复合斜</td><td>13.5 * 4 * 31</td><td>40S*150T400</td><td>135.0</td><td>215.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC225</td><td>40S*150酷丝绵 小钻石斜</td><td>17.5 * 3 * 35</td><td>40S*150T400</td><td>145.0</td><td>215.0</td><td class="price-cell">4.6</td></tr>
+                <tr><td>XC226</td><td>40S*150酷丝绵 大钻石斜</td><td>17.5 * 3 * 35</td><td>40S*150T400</td><td>145.0</td><td>215.0</td><td class="price-cell">4.6</td></tr>
+                <tr><td>XC227</td><td>40S*150酷丝绵细双斜</td><td>13.5 * 4 * 35</td><td>40S*150T400</td><td>150.0</td><td>215.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC228</td><td>40S*150酷丝绵双面骑兵斜</td><td>13.5 * 4 * 35</td><td>40S*150T400</td><td>150.0</td><td>215.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC229</td><td>40 * 150D 酷丝棉子母斜</td><td>18 * 3 * 36</td><td>40S*150T400</td><td>145.0</td><td>215.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC230</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC231</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC232</td><td>T400双条珍珠点</td><td>17 * 3 * 40</td><td>50 * 75 * 75</td><td>nan</td><td>215.0</td><td class="price-cell">5.5</td></tr>
+                <tr><td>XC233</td><td>40S*300 3/2变化斜</td><td>13.5 * 4 * 28</td><td>40S*150 * 2T400</td><td>190.0</td><td>215.0</td><td class="price-cell">6.0</td></tr>
+                <tr><td>XC234</td><td>100D半光*35S-3/3斜</td><td>16 * 4 * 42</td><td>100 * 35</td><td>155.0</td><td>218.0</td><td class="price-cell">4.5</td></tr>
+                <tr><td>XC235</td><td>120D扁平3/3斜-45</td><td>15.5 * 4 * 45</td><td>120 * 35S</td><td>170.0</td><td>220.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC236</td><td>100D消光*35S-3/3斜</td><td>16 * 4 * 43</td><td>100 * 35S</td><td>155.0</td><td>218.0</td><td class="price-cell">4.9</td></tr>
+                <tr><td>XC237</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC238</td><td>120D扁平3/3斜-46</td><td>16 * 4 * 45</td><td>120 * 35S</td><td>180.0</td><td>220.0</td><td class="price-cell">5.5</td></tr>
+                <tr><td>XC239</td><td>120D扁平4/4斜</td><td>17 * 4 * 46</td><td>120 * 35S</td><td>190.0</td><td>225.0</td><td class="price-cell">5.7</td></tr>
+                <tr><td>XC240</td><td>100D消光多乐3/3斜</td><td>15 * 4 * 43</td><td>100D*40S+150DT8</td><td>150.0</td><td>220.0</td><td class="price-cell">5.2</td></tr>
+                <tr><td>XC241</td><td>120D扁平1/2斜</td><td>17 * 4 * 34</td><td>120 * 35S</td><td>160.0</td><td>225.0</td><td class="price-cell">4.9</td></tr>
+                <tr><td>XC242</td><td>120D扁平T800变化斜</td><td>17 * 4 * 29</td><td>120*T800</td><td>190.0</td><td>220.0</td><td class="price-cell">5.2</td></tr>
+                <tr><td>XC243</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC244</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC245</td><td>40S*75 酷丝棉3/1斜</td><td>13.5 * 4 * 34</td><td>40S*75T400</td><td>112.0</td><td>215.0</td><td class="price-cell">3.8</td></tr>
+                <tr><td>XC246</td><td>40S*150 酷丝棉3/1斜 31</td><td>13.5 * 4 * 31</td><td>40S*150T400</td><td>135.0</td><td>215.0</td><td class="price-cell">4.3</td></tr>
+                <tr><td>XC247</td><td>40S*150 酷丝棉3/2斜 39</td><td>13.5 * 4 * 39</td><td>40S*150T400</td><td>160.0</td><td>215.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC248</td><td>40S*75D 酷丝棉2/1 30</td><td>17 * 3 * 30</td><td>40S*75T400</td><td>105.0</td><td>208.0</td><td class="price-cell">3.4</td></tr>
+                <tr><td>XC249</td><td>40S*75D 酷丝棉2/2 30</td><td>17.5 * 3 * 30</td><td>40S*75T400</td><td>108.0</td><td>215.0</td><td class="price-cell">3.4</td></tr>
+                <tr><td>XC250</td><td>40S*75D 酷丝棉2/2 38</td><td>17.5 * 3 * 38</td><td>40S*75T400</td><td>116.0</td><td>215.0</td><td class="price-cell">4.3</td></tr>
+                <tr><td>XC251</td><td>40S*75D 骑兵斜 30</td><td>17 * 3 * 30</td><td>40S*75T400</td><td>105.0</td><td>215.0</td><td class="price-cell">3.5</td></tr>
+                <tr><td>XC252</td><td>40S*75D 骑兵斜 38</td><td>17.5 * 3 * 38</td><td>40S*75T400</td><td>116.0</td><td>215.0</td><td class="price-cell">4.3</td></tr>
+                <tr><td>XC253</td><td>40S*300 酷丝棉3/2斜</td><td>13.5 * 4 * 27</td><td>40S*150 * 2T400</td><td>190.0</td><td>215.0</td><td class="price-cell">5.5</td></tr>
+                <tr><td>XC254</td><td>40S*75T 酷丝棉平纹 33S</td><td>18 * 2 * 33</td><td>40S*75T400</td><td>88.0</td><td>208.0</td><td class="price-cell">3.1</td></tr>
+                <tr><td>XC255</td><td>40S*300酷丝绵珍珠点</td><td>17.5 * 3 * 23</td><td>40S*150 * 300T400</td><td>185.0</td><td>215.0</td><td class="price-cell">5.3</td></tr>
+                <tr><td>XC256</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC257</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC258</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC259</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC260</td><td>40S*150酷丝绵0.5格</td><td>18 * 2/3 * 26</td><td>40S*150T400+300T400</td><td>108.0</td><td>210.0</td><td class="price-cell">3.5</td></tr>
+                <tr><td>XC261</td><td>80S*75双线格酷丝绵</td><td>18 * 3 * 39</td><td>80S*75T400+150T400</td><td>87.0</td><td>208.0</td><td class="price-cell">3.8</td></tr>
+                <tr><td>XC262</td><td>T400牛津0.3格</td><td>16 * 4 * 26</td><td>75 * 2+150 * 300</td><td>115.0</td><td>208.0</td><td class="price-cell">3.4</td></tr>
+                <tr><td>XC263</td><td>80S*50酷丝棉0.5格</td><td>17 * 3/4+41</td><td>80S*50+200T400</td><td>70.0</td><td>208.0</td><td class="price-cell">3.7</td></tr>
+                <tr><td>XC264</td><td>40S*150酷丝绵0.3格</td><td>18 * 2 * 25</td><td>40S*150T400 * 300T400</td><td>102.0</td><td>215.0</td><td class="price-cell">3.6</td></tr>
+                <tr><td>XC265</td><td>75 T800半光0.5格</td><td>20 * 2 * 36</td><td>75 * 75 * 225</td><td>78.0</td><td>215.0</td><td class="price-cell">3.8</td></tr>
+                <tr><td>XC266</td><td>50D经纬 T8 0.5格</td><td>22 * 2 * 40</td><td>50 * 50</td><td>60.0</td><td>220.0</td><td class="price-cell">4.2</td></tr>
+                <tr><td>XC267</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC268</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC269</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC270</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC271</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC272</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC273</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC274</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC275</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC276</td><td>小猫眼</td><td>23 * 3+43</td><td>75消低*75半T800</td><td>105.0</td><td>215.0</td><td class="price-cell">4.0</td></tr>
+                <tr><td>XC277</td><td>半光大猫眼</td><td>16 * 4 * 43</td><td>100半低*150半T800</td><td>159.0</td><td>212.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC278</td><td>50D低弹*50T800 平纹</td><td>23 * 2 * 40</td><td>50 * 50</td><td>50.0</td><td>220.0</td><td class="price-cell">3.6</td></tr>
+                <tr><td>XC279</td><td>30D T8 平纹</td><td>22 * 3 * 57</td><td>30 * 30</td><td>nan</td><td>210.0</td><td class="price-cell">4.7</td></tr>
+                <tr><td>XC280</td><td>50D T8 平纹</td><td>20.5 * 2 * 42</td><td>50 * 50</td><td>55.0</td><td>222.0</td><td class="price-cell">3.7</td></tr>
+                <tr><td>XC281</td><td>75D经纬T8平纹</td><td>19 * 2 * 30</td><td>75 * 75</td><td>62.0</td><td>215.0</td><td class="price-cell">3.0</td></tr>
+                <tr><td>XC282</td><td>75经纬T8 2/2斜</td><td>19 * 3 * 38</td><td>75 * 75</td><td>100.0</td><td>208.0</td><td class="price-cell">4.0</td></tr>
+                <tr><td>XC283</td><td>50DT8 * 50DT8 骑兵斜</td><td>21 * 3 * 53</td><td>50DT8 * 50DT8</td><td>80.0</td><td>208.0</td><td class="price-cell">4.8</td></tr>
+                <tr><td>XC284</td><td>50D*50D加密T800平纹</td><td>21 * 3 * 47</td><td>50DT8 * 50DT8</td><td>73.0</td><td>208.0</td><td class="price-cell">4.0</td></tr>
+                <tr><td>XC285</td><td>T8五面埋伏</td><td>14 * 4 * 38</td><td>75D消光DTY*75DT8</td><td>85.0</td><td>208.0</td><td class="price-cell">4.0</td></tr>
+                <tr><td>XC286</td><td>50D*100D经纬T800珍珠点</td><td>21 * 3 * 49</td><td>50D*50D*100D T800</td><td>88.0</td><td>218.0</td><td class="price-cell">4.6</td></tr>
+                <tr><td>XC287</td><td>T800双链条</td><td>18 * 3 * 49</td><td>75 * 75 * 150</td><td>95.0</td><td>208.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC288</td><td>T800牛津-奥特曼</td><td>16 * 2 * 2+30</td><td>100 * 2+150</td><td>135.0</td><td>215.0</td><td class="price-cell">3.9</td></tr>
+                <tr><td>XC289</td><td>经消光低弹 纬T800</td><td>21 * 2 * 32</td><td>75 * 75</td><td>68.0</td><td>220.0</td><td class="price-cell">2.9</td></tr>
+                <tr><td>XC290</td><td>经消光低弹 双纬T800</td><td>20 * 2 * 28</td><td>75 * 75 * 2</td><td>88.0</td><td>220.0</td><td class="price-cell">3.8</td></tr>
+                <tr><td>XC291</td><td>75D半光T800双纬平纹</td><td>19 * 2 * 26</td><td>75DT8 * 75DT8 * 2</td><td>80.0</td><td>215.0</td><td class="price-cell">3.6</td></tr>
+                <tr><td>XC292</td><td>75消低弹*75T8002/2斜</td><td>17.5 * 4 * 38</td><td>75 * 75</td><td>106.0</td><td>215.0</td><td class="price-cell">3.7</td></tr>
+                <tr><td>XC293</td><td>40S*150T800酷丝棉3/2斜</td><td>13.5 * 4 * 37</td><td>40S*150T800</td><td>155.0</td><td>215.0</td><td class="price-cell">5.0</td></tr>
+                <tr><td>XC294</td><td>空变T8平纹</td><td>19 * 2 * 25</td><td>110消空变*150D半T80</td><td>nan</td><td>215.0</td><td class="price-cell">4.9</td></tr>
+                <tr><td>XC295</td><td>T800消光十面埋伏</td><td>14 * 4 * 43</td><td>经低弹75 * 75纬T800</td><td>nan</td><td>208.0</td><td class="price-cell">3.8</td></tr>
+                <tr><td>XC296</td><td>40S*75T8酷丝棉3/1.超钛棉</td><td>17.5 * 3 * 44</td><td>40S*75T800</td><td>125.0</td><td>215.0</td><td class="price-cell">4.8</td></tr>
+                <tr><td>XC297</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC298</td><td>100D消光75DT800 3/3斜</td><td>15.5 * 4 * 48</td><td>100 * 75T8</td><td>124.0</td><td>218.0</td><td class="price-cell">4.8</td></tr>
+                <tr><td>XC299</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC300</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC301</td><td>39梭多乐绵</td><td>16 * 4 * 39</td><td>100D*40S+150DT8</td><td>150.0</td><td>215.0</td><td class="price-cell">4.7</td></tr>
+                <tr><td>XC302</td><td>34梭多乐绵</td><td>16 * 4 * 34</td><td>100D*40S+150D</td><td>140.0</td><td>215.0</td><td class="price-cell">4.4</td></tr>
+                <tr><td>XC303</td><td>50D*60S弹力2/2斜</td><td>21 * 3 * 47</td><td>50DT800 * 60S弹力酷丝绵</td><td>90.0</td><td>218.0</td><td class="price-cell">4.6</td></tr>
+                <tr><td>XC304</td><td>斜纹毛巾底</td><td>13.5 * 4 * 51</td><td>40S*150T8 * 300低弹</td><td>215.0</td><td>225.0</td><td class="price-cell">7.0</td></tr>
+                <tr><td>XC305</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC306</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC307</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC308</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC309</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC310</td><td>80S*75酷丝绵骑兵斜</td><td>18 * 3 * 43</td><td>80S*75T400</td><td>85.0</td><td>215.0</td><td class="price-cell">3.9</td></tr>
+                <tr><td>XC311</td><td>80S*50酷丝绵</td><td>18 * 3 * 43</td><td>80S酷*50DT400</td><td>73.0</td><td>208.0</td><td class="price-cell">3.9</td></tr>
+                <tr><td>XC312</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC313</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC314</td><td>网纹-180</td><td>17 * 4 * 44</td><td>75D*50S+10DT8</td><td>116.0</td><td>225.0</td><td class="price-cell">5.4</td></tr>
+                <tr><td>XC315</td><td>网纹-220</td><td>15 * 4 * 44</td><td>100D*35S+150DT8</td><td>160.0</td><td>215.0</td><td class="price-cell">5.2</td></tr>
+                <tr><td>XC316</td><td>天丝棉</td><td>20 * 3 * 32</td><td>80S*三合一</td><td>110.0</td><td>188.0</td><td class="price-cell">3.7</td></tr>
+                <tr><td>XC317</td><td>天丝棉</td><td>21 * 3 * 31</td><td>80S*三合一</td><td>110.0</td><td>208.0</td><td class="price-cell">4.0</td></tr>
+                <tr><td>XC318</td><td>270-钛金棉</td><td>14 * 4 * 26.5</td><td>40S*35S*2</td><td>205.0</td><td>215.0</td><td class="price-cell">5.5</td></tr>
+                <tr><td>XC319</td><td>40S*35S 酷3/3斜 双龙</td><td>16 * 4 * 45</td><td>40S*35S</td><td>185.0</td><td>218.0</td><td class="price-cell">6.0</td></tr>
+                <tr><td>XC320</td><td>210-钛金棉</td><td>17 * 3 * 27</td><td>40S*30S</td><td>138.0</td><td>220.0</td><td class="price-cell">4.4</td></tr>
+                <tr><td>XC321</td><td>加厚钛金棉</td><td>15.5 * 4 * 30</td><td>40S*35S*2</td><td>225.0</td><td>215.0</td><td class="price-cell">6.0</td></tr>
+                <tr><td>XC322</td><td>240-钛金棉</td><td>17.5 * 3 * 31</td><td>40S*30S</td><td>155.0</td><td>215.0</td><td class="price-cell">5.1</td></tr>
+                <tr><td>XC323</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <tr><td>XC324</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td class="price-cell">nan</td></tr>
+                <!-- 产品数据结束 -->
+            </tbody>
+        </table>
     </div>
 
-    <table id="productTable">
-        <thead>
-            <tr>
-                <th>编号</th>
-                <th>品名</th>
-                <th>规格</th>
-                <th>原料</th>
-                <th>克重</th>
-                <th>门幅</th>
-                <th>价格</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>XC001</td>
-                <td>1*1半光横条</td>
-                <td>17.5*3*27</td>
-                <td>75*75*150</td>
-                <td>79.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC002</td>
-                <td>1*1消光横条</td>
-                <td>17.5*3*28</td>
-                <td>75*75*150</td>
-                <td>80.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC003</td>
-                <td>1*1消光横条加密</td>
-                <td>17.5*3*32</td>
-                <td>75*75*150</td>
-                <td>85.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC004</td>
-                <td>1*2半光横条</td>
-                <td>17.5*3*28</td>
-                <td>75*75*150</td>
-                <td>78.0</td>
-                <td>165.0</td>
-                <td>2.4</td>
-            </tr>
-            <tr>
-                <td>XC005</td>
-                <td>1*3半光横条</td>
-                <td>17.5*3*28</td>
-                <td>75*75*150</td>
-                <td>78.0</td>
-                <td>165.0</td>
-                <td>2.4</td>
-            </tr>
-            <tr>
-                <td>XC006</td>
-                <td>2*2半光横条</td>
-                <td>17.5*3*28</td>
-                <td>75*75*150</td>
-                <td>80.0</td>
-                <td>165.0</td>
-                <td>2.4</td>
-            </tr>
-            <tr>
-                <td>XC007</td>
-                <td>150*300半光横条</td>
-                <td>17.5*3*22</td>
-                <td>75*150*300</td>
-                <td>105.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC008</td>
-                <td>150*300消光横条</td>
-                <td>17.5*3*22</td>
-                <td>75*150*300</td>
-                <td>103.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC009</td>
-                <td>240T 0.15浮格</td>
-                <td>17.5*3*28</td>
-                <td>75*75*150</td>
-                <td>73.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC010</td>
-                <td>240T 0.15*0.18平格</td>
-                <td>17.5*3*28</td>
-                <td>75*75*150</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC011</td>
-                <td>240T 0.2半光平格</td>
-                <td>17.5*3*27</td>
-                <td>75*75*150</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC012</td>
-                <td>240T 0.2消光平格</td>
-                <td>17.5*3*27</td>
-                <td>75*75*150</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC013</td>
-                <td>240T 0.2浮格</td>
-                <td>17.5*3*28</td>
-                <td>75*75*150</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC014</td>
-                <td>240T 0.3浮格</td>
-                <td>17.5*3*29</td>
-                <td>75*75*150</td>
-                <td>71.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC015</td>
-                <td>240T 0.3三线格</td>
-                <td>17.5*3*28</td>
-                <td>75*75*150</td>
-                <td>79.0</td>
-                <td>165.0</td>
-                <td>2.4</td>
-            </tr>
-            <tr>
-                <td>XC016</td>
-                <td>240T 0.1浮格</td>
-                <td>17.5*3*28</td>
-                <td>75*75*150</td>
-                <td>73.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC017</td>
-                <td>240T 0.2半光花格</td>
-                <td>17.5*3*28</td>
-                <td>75*75</td>
-                <td>67.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC018</td>
-                <td>260T 0.15半光花格</td>
-                <td>20*3*34</td>
-                <td>75*75</td>
-                <td>82.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC019</td>
-                <td>300T 0.1半光平格</td>
-                <td>22*3*37</td>
-                <td>50*50*100</td>
-                <td>68.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC020</td>
-                <td>300T 0.15半光平格</td>
-                <td>22*3*37</td>
-                <td>50*50*100</td>
-                <td>68.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC021</td>
-                <td>300T 0.2消光平格</td>
-                <td>22*3*37</td>
-                <td>50*50*100</td>
-                <td>65.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC022</td>
-                <td>300T 0.2半光双线格</td>
-                <td>22*3*41</td>
-                <td>50*50*100</td>
-                <td>68.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC023</td>
-                <td>300T 0.2消光双线格</td>
-                <td>22*3*41</td>
-                <td>50*50*100</td>
-                <td>68.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC024</td>
-                <td>300T 0.3消光双线格</td>
-                <td>22*3*41</td>
-                <td>50*50*100</td>
-                <td>68.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC025</td>
-                <td>26梭  消光双线分格</td>
-                <td>20*3*26</td>
-                <td>75*75*150</td>
-                <td>75.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC026</td>
-                <td>33梭  消光双线分格</td>
-                <td>20*3*33</td>
-                <td>75*75*150</td>
-                <td>84.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC027</td>
-                <td>300T 0.3半光浮格</td>
-                <td>21*3*41</td>
-                <td>50*50*100</td>
-                <td>68.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC028</td>
-                <td>300T 0.2半光单线格</td>
-                <td>22*3*38</td>
-                <td>50*50*100</td>
-                <td>68.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC029</td>
-                <td>300T 0.3半光双线格</td>
-                <td>22*3*39</td>
-                <td>50*50*100</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC030</td>
-                <td>300T 0.12消光平格</td>
-                <td>22*3*40</td>
-                <td>50*50*100</td>
-                <td>65.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC031</td>
-                <td>300T 0.3半光平格</td>
-                <td>22*3*37</td>
-                <td>50*50*100</td>
-                <td>65.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC032</td>
-                <td>300T 0.2半光平格</td>
-                <td>22*3*37</td>
-                <td>50*50*100</td>
-                <td>65.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC033</td>
-                <td>0.15消光桃皮格</td>
-                <td>18*3+33</td>
-                <td>75*150*300</td>
-                <td>118.0</td>
-                <td>173.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC034</td>
-                <td>0.2桃皮格</td>
-                <td>17.5*3*22</td>
-                <td>75*150*300</td>
-                <td>95.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC035</td>
-                <td>0.25桃皮格</td>
-                <td>17.5*3*26</td>
-                <td>75*150*300</td>
-                <td>103.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC036</td>
-                <td>0.5  半光绒格</td>
-                <td>17.5*3*31</td>
-                <td>75*150*300</td>
-                <td>101.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC037</td>
-                <td>塔丝绒0.25格</td>
-                <td>17.5*3*27</td>
-                <td>75*160*320</td>
-                <td>90.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC038</td>
-                <td>240T 0.5格</td>
-                <td>17.5*3*31</td>
-                <td>75*75*150</td>
-                <td>71.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC039</td>
-                <td>高弹米通</td>
-                <td>20*3*34</td>
-                <td>50*50*100</td>
-                <td>70.0</td>
-                <td>188.0</td>
-                <td>2.4</td>
-            </tr>
-            <tr>
-                <td>XC040</td>
-                <td>75*50+150单层米通</td>
-                <td>17.5*3*28</td>
-                <td>75*50*150</td>
-                <td>72.0</td>
-                <td>165.0</td>
-                <td>2.4</td>
-            </tr>
-            <tr>
-                <td>XC041</td>
-                <td>75*75+150单层米通</td>
-                <td>17.5*3*32</td>
-                <td>75*75*150</td>
-                <td>88.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC042</td>
-                <td>50*50+150单层米通</td>
-                <td>22*3*37</td>
-                <td>50*50*150</td>
-                <td>76.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC043</td>
-                <td>50*50+100单层米通</td>
-                <td>23*3*37</td>
-                <td>50*50*50*2</td>
-                <td>72.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC044</td>
-                <td>50S消光珍珠点50*50*150</td>
-                <td>23*3+50</td>
-                <td>50*50*150</td>
-                <td>90.0</td>
-                <td>165.0</td>
-                <td>4.7</td>
-            </tr>
-            <tr>
-                <td>XC045</td>
-                <td>半光珍珠点75*150*300</td>
-                <td>17.5*3*28</td>
-                <td>75*150*300</td>
-                <td>110.0</td>
-                <td>165.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC046</td>
-                <td>半光珍珠点50*50*150</td>
-                <td>22*3*40</td>
-                <td>50*50*150</td>
-                <td>73.0</td>
-                <td>165.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC047</td>
-                <td>消光珍珠点50*50*150</td>
-                <td>22*3+40</td>
-                <td>50*50*150</td>
-                <td>77.0</td>
-                <td>165.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC048</td>
-                <td>消光珍珠点75*75*150</td>
-                <td>17.5*3*29</td>
-                <td>75*75*150</td>
-                <td>85.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC049</td>
-                <td>半光珍珠点75*75*300</td>
-                <td>17.5*3*29</td>
-                <td>75*75*300</td>
-                <td>92.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC050</td>
-                <td>消光珍珠点75*75*300</td>
-                <td>17.5*3*29</td>
-                <td>75*75*300</td>
-                <td>92.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC051</td>
-                <td>半光珍珠点75*75*150</td>
-                <td>17.5*3*29</td>
-                <td>75*75*150</td>
-                <td>85.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC052</td>
-                <td>消光珍珠点75*150*300</td>
-                <td>17.5*3*29</td>
-                <td>75*150*300</td>
-                <td>115.0</td>
-                <td>165.0</td>
-                <td>3.3</td>
-            </tr>
-            <tr>
-                <td>XC053</td>
-                <td>纬高弹珍珠点</td>
-                <td>19.5*4*36</td>
-                <td>75*75*150</td>
-                <td>110.0</td>
-                <td>184.0</td>
-                <td>3.8</td>
-            </tr>
-            <tr>
-                <td>XC054</td>
-                <td>150消光高弹</td>
-                <td>13*2*25</td>
-                <td>150*150</td>
-                <td>90.0</td>
-                <td>188.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC055</td>
-                <td>150半光高弹</td>
-                <td>14*2*25</td>
-                <td>150*150</td>
-                <td>90.0</td>
-                <td>188.0</td>
-                <td>2.1</td>
-            </tr>
-            <tr>
-                <td>XC056</td>
-                <td>75D半光高弹</td>
-                <td>19*2*31</td>
-                <td>75*75</td>
-                <td>61.0</td>
-                <td>188.0</td>
-                <td>2.0</td>
-            </tr>
-            <tr>
-                <td>XC057</td>
-                <td>50D消光高弹</td>
-                <td>20*2*38</td>
-                <td>50*50</td>
-                <td>49.0</td>
-                <td>188.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC058</td>
-                <td>天丝条</td>
-                <td>17*3*31</td>
-                <td>75*150</td>
-                <td>100.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC059</td>
-                <td>半光满天星</td>
-                <td>17.5*3*31</td>
-                <td>75*150</td>
-                <td>100.0</td>
-                <td>165.0</td>
-                <td>3.2</td>
-            </tr>
-            <tr>
-                <td>XC060</td>
-                <td>150D消光平纹桃皮绒30</td>
-                <td>17.5*3*30</td>
-                <td>75*150</td>
-                <td>95.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC061</td>
-                <td>加密半光斜桃</td>
-                <td>18*3*34</td>
-                <td>75*150</td>
-                <td>108.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC062</td>
-                <td>150D消光桃皮绒27</td>
-                <td>17.5*3*27</td>
-                <td>75*150</td>
-                <td>91.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC063</td>
-                <td>200D平纹桃皮绒</td>
-                <td>17.5*3*25</td>
-                <td>75*200</td>
-                <td>98.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC064</td>
-                <td>消光斜桃1/2斜桃</td>
-                <td>17.5*3*33</td>
-                <td>75*150</td>
-                <td>103.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC065</td>
-                <td>消光斜桃2/2斜桃</td>
-                <td>20*3*34</td>
-                <td>75*150</td>
-                <td>108.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC066</td>
-                <td>75D消光双纬四季纺</td>
-                <td>20*3*30</td>
-                <td>75+75*2</td>
-                <td>105.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC067</td>
-                <td>210T半光春亚纺</td>
-                <td>22*2*32</td>
-                <td>75*75</td>
-                <td>60.0</td>
-                <td>165.0</td>
-                <td>2.0</td>
-            </tr>
-            <tr>
-                <td>XC068</td>
-                <td>240T半光春亚纺</td>
-                <td>17.5*3*32</td>
-                <td>75*75</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.1</td>
-            </tr>
-            <tr>
-                <td>XC069</td>
-                <td>240T消光春亚纺</td>
-                <td>17.5*3*32</td>
-                <td>75*75</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.2</td>
-            </tr>
-            <tr>
-                <td>XC070</td>
-                <td>240T消光1/2春亚纺</td>
-                <td>17.5*3*32</td>
-                <td>75*75</td>
-                <td>72.0</td>
-                <td>165.0</td>
-                <td>2.1</td>
-            </tr>
-            <tr>
-                <td>XC071</td>
-                <td>240T半光2/2春亚纺 </td>
-                <td>17.5*3*30</td>
-                <td>75*75</td>
-                <td>77.0</td>
-                <td>165.0</td>
-                <td>2.1</td>
-            </tr>
-            <tr>
-                <td>XC072</td>
-                <td>240T消光2/2春亚纺 </td>
-                <td>17.5*3*32</td>
-                <td>75*75</td>
-                <td>72.0</td>
-                <td>165.0</td>
-                <td>2.2</td>
-            </tr>
-            <tr>
-                <td>XC073</td>
-                <td>260T消光春亚纺</td>
-                <td>20*3*35</td>
-                <td>75*75</td>
-                <td>80.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC074</td>
-                <td>260T消光1/2春亚纺</td>
-                <td>20*3*35</td>
-                <td>75*75</td>
-                <td>80.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC075</td>
-                <td>260T消光2/2春亚纺 </td>
-                <td>20*3*35</td>
-                <td>75*75</td>
-                <td>82.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC076</td>
-                <td>300半光春亚纺</td>
-                <td>22*3*40</td>
-                <td>50*50</td>
-                <td>60.0</td>
-                <td>165.0</td>
-                <td>2.2</td>
-            </tr>
-            <tr>
-                <td>XC077</td>
-                <td>300消光春亚纺</td>
-                <td>23*3*40</td>
-                <td>50*50</td>
-                <td>63.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC078</td>
-                <td>300T半光春亚纺144F</td>
-                <td>19*3*50</td>
-                <td>50*50</td>
-                <td>64.0</td>
-                <td>174.0</td>
-                <td>2.4</td>
-            </tr>
-            <tr>
-                <td>XC079</td>
-                <td>310T消光春亚纺</td>
-                <td>23.5*3*42</td>
-                <td>50*50</td>
-                <td>65.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC080</td>
-                <td>300T半光2/1斜</td>
-                <td>22*3*40</td>
-                <td>50*50</td>
-                <td>60.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC081</td>
-                <td>50D 320T消光2/2斜</td>
-                <td>23*3*46</td>
-                <td>50*50</td>
-                <td>68.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC082</td>
-                <td>75D 320T消光2/2斜</td>
-                <td>23*3*46</td>
-                <td>75*75</td>
-                <td>98.0</td>
-                <td>165.0</td>
-                <td>3.2</td>
-            </tr>
-            <tr>
-                <td>XC083</td>
-                <td>300T半光高F涤塔夫</td>
-                <td>19*3*50</td>
-                <td>50*50</td>
-                <td>64.0</td>
-                <td>174.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC084</td>
-                <td>300T消光高F涤塔夫</td>
-                <td>19*3*50</td>
-                <td>50*50</td>
-                <td>64.0</td>
-                <td>174.0</td>
-                <td>2.2</td>
-            </tr>
-            <tr>
-                <td>XC085</td>
-                <td>320T半光春亚纺</td>
-                <td>23*3*46</td>
-                <td>50*50</td>
-                <td>65.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC086</td>
-                <td>320T消光春亚纺</td>
-                <td>23*3*46</td>
-                <td>50*50</td>
-                <td>65.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC087</td>
-                <td>320T消光春亚纺2/1斜</td>
-                <td>23*3*46</td>
-                <td>50*50</td>
-                <td>65.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC088</td>
-                <td>320T高F半光春亚纺</td>
-                <td>23*3+46</td>
-                <td>50*50</td>
-                <td>68.0</td>
-                <td>174.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC089</td>
-                <td>330T高F半光春亚纺</td>
-                <td>23*3+46</td>
-                <td>50*65（192）</td>
-                <td>78.0</td>
-                <td>174.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC090</td>
-                <td>350T高F半光春亚纺</td>
-                <td>20*4*46</td>
-                <td>50*50</td>
-                <td>82.0</td>
-                <td>174.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC091</td>
-                <td>260T半光春亚纺</td>
-                <td>20*3*35</td>
-                <td>75*75</td>
-                <td>82.0</td>
-                <td>165.0</td>
-                <td>2.2</td>
-            </tr>
-            <tr>
-                <td>XC092</td>
-                <td>280T消光春亚纺</td>
-                <td>21*3*38</td>
-                <td>75*75</td>
-                <td>92.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC093</td>
-                <td>260T半光2/2春亚纺</td>
-                <td>20*3*35</td>
-                <td>75*75</td>
-                <td>82.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC094</td>
-                <td>0.15菱形格75*75</td>
-                <td>17.5*3*35</td>
-                <td>75*75</td>
-                <td>75.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC095</td>
-                <td>0.18菱形格75*75</td>
-                <td>17.5*3*30</td>
-                <td>75*75</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.2</td>
-            </tr>
-            <tr>
-                <td>XC096</td>
-                <td>0.18菱形格75*150</td>
-                <td>17.5*3*30</td>
-                <td>75*150</td>
-                <td>94.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC097</td>
-                <td>0.2菱形格75*75</td>
-                <td>17.5*3*32</td>
-                <td>75*75</td>
-                <td>72.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC098</td>
-                <td>300T0.1长丝菱形格</td>
-                <td>19*3*50</td>
-                <td>50*50</td>
-                <td>68.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC099</td>
-                <td>300T0.1弹丝菱形格</td>
-                <td>22*3*40</td>
-                <td>50*50</td>
-                <td>63.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC100</td>
-                <td>消半弹丝双线菱形格</td>
-                <td>21*3*45</td>
-                <td>50*50</td>
-                <td>65.0</td>
-                <td>165.0</td>
-                <td>3.3</td>
-            </tr>
-            <tr>
-                <td>XC101</td>
-                <td>消光塔丝绒牛津</td>
-                <td>12*4*18</td>
-                <td>150*2+160*2</td>
-                <td>148.0</td>
-                <td>165.0</td>
-                <td>3.4</td>
-            </tr>
-            <tr>
-                <td>XC102</td>
-                <td>双经双纬消光牛津</td>
-                <td>19*2*2+26</td>
-                <td>75*2+75*2</td>
-                <td>113.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC103</td>
-                <td>19S单经双纬消光牛津</td>
-                <td>18*2*19</td>
-                <td>150*150*2</td>
-                <td>125.0</td>
-                <td>165.0</td>
-                <td>3.3</td>
-            </tr>
-            <tr>
-                <td>XC104</td>
-                <td>17S单经双纬消光牛津</td>
-                <td>18*2*17</td>
-                <td>150*150*2</td>
-                <td>118.0</td>
-                <td>165.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC105</td>
-                <td>300*300牛津</td>
-                <td>12*4*18</td>
-                <td>150*2+150*2</td>
-                <td>140.0</td>
-                <td>165.0</td>
-                <td>3.3</td>
-            </tr>
-            <tr>
-                <td>XC106</td>
-                <td>34梭 米字格</td>
-                <td>17.5*3*34</td>
-                <td>75*75*150</td>
-                <td>79.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC107</td>
-                <td>300T 半光城墙格</td>
-                <td>22*3*41</td>
-                <td>50*75</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC108</td>
-                <td>240T 0.3半光足球格</td>
-                <td>17.5*3*31</td>
-                <td>75*75</td>
-                <td>69.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC109</td>
-                <td>0.3消光足球格</td>
-                <td>17.5*3*25</td>
-                <td>75*150</td>
-                <td>88.0</td>
-                <td>165.0</td>
-                <td>3.4</td>
-            </tr>
-            <tr>
-                <td>XC110</td>
-                <td>双线消光弹丝罗马格套格</td>
-                <td>23*3*40</td>
-                <td>50*50</td>
-                <td>60.0</td>
-                <td>165.0</td>
-                <td>3.2</td>
-            </tr>
-            <tr>
-                <td>XC111</td>
-                <td>75*150满天星</td>
-                <td>17.5*3*31</td>
-                <td>75*150</td>
-                <td>93.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC112</td>
-                <td>半光骑兵斜</td>
-                <td>17.5*3*32</td>
-                <td>75*75</td>
-                <td>72.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC113</td>
-                <td>消光骑兵斜</td>
-                <td>17.5*3*32</td>
-                <td>75*150</td>
-                <td>100.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC114</td>
-                <td>75D 弹丝意大利点</td>
-                <td>21*3*33</td>
-                <td>75*75</td>
-                <td>76.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC115</td>
-                <td>300T 消光华夫格</td>
-                <td>22*3*42</td>
-                <td>50*50</td>
-                <td>61.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC116</td>
-                <td>240T 半光梅花格</td>
-                <td>17.5*3*32</td>
-                <td>75*75</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.4</td>
-            </tr>
-            <tr>
-                <td>XC117</td>
-                <td>370T消光2/1斜</td>
-                <td>21*4*46</td>
-                <td>50*50</td>
-                <td>76.0</td>
-                <td>165.0</td>
-                <td>3.2</td>
-            </tr>
-            <tr>
-                <td>XC118</td>
-                <td>370T消光2/2斜</td>
-                <td>21*4*46</td>
-                <td>50*50</td>
-                <td>76.0</td>
-                <td>165.0</td>
-                <td>3.2</td>
-            </tr>
-            <tr>
-                <td>XC119</td>
-                <td>240T 消光人字斜</td>
-                <td>17.5*3*28</td>
-                <td>75*150</td>
-                <td>92.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC120</td>
-                <td>240T 半光菱中点</td>
-                <td>17.5*3*35</td>
-                <td>75*75</td>
-                <td>72.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC121</td>
-                <td>240T 消光斜格</td>
-                <td>17.5*3*28</td>
-                <td>75*150</td>
-                <td>92.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC122</td>
-                <td>导电斜纹舒美绸</td>
-                <td>19*3*37</td>
-                <td>63*50</td>
-                <td>68.0</td>
-                <td>165.0</td>
-                <td>2.2</td>
-            </tr>
-            <tr>
-                <td>XC123</td>
-                <td>韩国绒 189上机</td>
-                <td>18*4*25</td>
-                <td>75/144*150/288</td>
-                <td>105.0</td>
-                <td>189.0</td>
-                <td>3.5</td>
-            </tr>
-            <tr>
-                <td>XC124</td>
-                <td>变化斜</td>
-                <td>17.5*3*29</td>
-                <td>75*150</td>
-                <td>92.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC125</td>
-                <td>240T 消光格中点</td>
-                <td>17.5*3*28</td>
-                <td>75*75*150</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC126</td>
-                <td>240T 加密消光格中点</td>
-                <td>17.5*3*36</td>
-                <td>75*75*100*2</td>
-                <td>86.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC127</td>
-                <td>消光双线浮点</td>
-                <td>21*3*33</td>
-                <td>75*75*150</td>
-                <td>84.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC128</td>
-                <td>消光乱格</td>
-                <td>17.5*3*29</td>
-                <td>75*150*300</td>
-                <td>92.0</td>
-                <td>165.0</td>
-                <td>3.2</td>
-            </tr>
-            <tr>
-                <td>XC129</td>
-                <td>75*75 弹丝小蜂巢</td>
-                <td>17.5*3*29</td>
-                <td>75*75</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.2</td>
-            </tr>
-            <tr>
-                <td>XC130</td>
-                <td>75*150弹丝小蜂巢</td>
-                <td>17*3*28</td>
-                <td>75*150</td>
-                <td>90.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC131</td>
-                <td>75*300弹丝半光大蜂巢</td>
-                <td>17.5*3*23</td>
-                <td>75*300</td>
-                <td>120.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC132</td>
-                <td>塔丝绒小蜂巢</td>
-                <td>17.5*3*32</td>
-                <td>75*160</td>
-                <td>98.0</td>
-                <td>165.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC133</td>
-                <td>多孔格</td>
-                <td>17.5*3*29</td>
-                <td>75+112*75*112</td>
-                <td>nan</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC134</td>
-                <td>228涤纶半光塔丝绒</td>
-                <td>17.5*3*26</td>
-                <td>75*160</td>
-                <td>88.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC135</td>
-                <td>228涤纶消光塔丝绒</td>
-                <td>17.5*3*26</td>
-                <td>75*160</td>
-                <td>88.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC136</td>
-                <td>320半光涤纶塔丝绒</td>
-                <td>17.5*3*17</td>
-                <td>75*160*2</td>
-                <td>103.0</td>
-                <td>165.0</td>
-                <td>2.7</td>
-            </tr>
-            <tr>
-                <td>XC137</td>
-                <td>320消光涤纶塔丝绒</td>
-                <td>17.5*3*17.5</td>
-                <td>75*160*2</td>
-                <td>102.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC138</td>
-                <td>320消光涤纶塔丝绒19S</td>
-                <td>17.5*3*19</td>
-                <td>75*160*2</td>
-                <td>110.0</td>
-                <td>165.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC139</td>
-                <td>320消光涤纶塔丝绒20.5S</td>
-                <td>17.5*3*20.5</td>
-                <td>75*160*2</td>
-                <td>113.0</td>
-                <td>165.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC140</td>
-                <td>30S 228涤纶消光塔丝绒</td>
-                <td>17.5*3*30</td>
-                <td>75*160</td>
-                <td>95.0</td>
-                <td>165.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC141</td>
-                <td>75D  弹丝半光罗马格</td>
-                <td>17.5*3*32</td>
-                <td>75*75</td>
-                <td>72.0</td>
-                <td>165.0</td>
-                <td>2.3</td>
-            </tr>
-            <tr>
-                <td>XC142</td>
-                <td>300T 长丝罗马格</td>
-                <td>22*3*40</td>
-                <td>50*50</td>
-                <td>57.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC143</td>
-                <td>300T 消光弹丝罗马格</td>
-                <td>22*3*40</td>
-                <td>50*50</td>
-                <td>62.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC144</td>
-                <td>300T 半光弹丝罗马格</td>
-                <td>22*3*40</td>
-                <td>50*50</td>
-                <td>62.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC145</td>
-                <td>300T 消光弹丝阴阳格</td>
-                <td>22*3*40</td>
-                <td>50*50</td>
-                <td>62.0</td>
-                <td>165.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC146</td>
-                <td>300T 半光弹丝阴阳格</td>
-                <td>22*3*40</td>
-                <td>50*50</td>
-                <td>62.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC147</td>
-                <td>提点(左右点)</td>
-                <td>17.5*3*32</td>
-                <td>75*75</td>
-                <td>70.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC148</td>
-                <td>窗户格</td>
-                <td>17.5*3*24</td>
-                <td>75*150*300</td>
-                <td>95.0</td>
-                <td>165.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC149</td>
-                <td>细密斜</td>
-                <td>19*4*41</td>
-                <td>50*50*2</td>
-                <td>97.0</td>
-                <td>165.0</td>
-                <td>3.3</td>
-            </tr>
-            <tr>
-                <td>XC150</td>
-                <td>75D  弹丝半光阴阳格</td>
-                <td>17.5*3*32</td>
-                <td>75*75</td>
-                <td>72.0</td>
-                <td>165.0</td>
-                <td>2.5</td>
-            </tr>
-            <tr>
-                <td>XC151</td>
-                <td>36S T400破卡 208</td>
-                <td>17*4*36</td>
-                <td>75消*75T400</td>
-                <td>90.0</td>
-                <td>208.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC152</td>
-                <td>43S T400破卡 216</td>
-                <td>18*4*43</td>
-                <td>75消*75T400</td>
-                <td>100.0</td>
-                <td>216.0</td>
-                <td>3.7</td>
-            </tr>
-            <tr>
-                <td>XC153</td>
-                <td>王者荣耀  208</td>
-                <td>17*3*45</td>
-                <td>75*75T400*150</td>
-                <td>96.0</td>
-                <td>208.0</td>
-                <td>3.5</td>
-            </tr>
-            <tr>
-                <td>XC154</td>
-                <td>王者荣耀  220</td>
-                <td>17*3*45</td>
-                <td>75*75T400*150</td>
-                <td>95.0</td>
-                <td>220.0</td>
-                <td>3.7</td>
-            </tr>
-            <tr>
-                <td>XC155</td>
-                <td>T400老珍珠点</td>
-                <td>17*3*56</td>
-                <td>75*75T400*150</td>
-                <td>107.0</td>
-                <td>215.0</td>
-                <td>4.5</td>
-            </tr>
-            <tr>
-                <td>XC156</td>
-                <td>38S T400破卡 208</td>
-                <td>17*4*38</td>
-                <td>75消*75T400</td>
-                <td>92.0</td>
-                <td>208.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC157</td>
-                <td>T400王者归来</td>
-                <td>18*3*47</td>
-                <td>75*75T400*150</td>
-                <td>94.0</td>
-                <td>225.0</td>
-                <td>3.6</td>
-            </tr>
-            <tr>
-                <td>XC158</td>
-                <td>高弹水波纹</td>
-                <td>10*4*22</td>
-                <td>150*150</td>
-                <td>120.0</td>
-                <td>199.0</td>
-                <td>3.4</td>
-            </tr>
-            <tr>
-                <td>XC159</td>
-                <td>T400酷丝千鸟格</td>
-                <td>15*3*42</td>
-                <td>60S*75T400</td>
-                <td>85.0</td>
-                <td>220.0</td>
-                <td>5.5</td>
-            </tr>
-            <tr>
-                <td>XC160</td>
-                <td>25梭T400无捻牛津</td>
-                <td>17*2*25</td>
-                <td>75*2*150T400</td>
-                <td>104.0</td>
-                <td>208.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC161</td>
-                <td>纬捻T400双经单纬牛津</td>
-                <td>18*2*27</td>
-                <td>75*2*150T400</td>
-                <td>117.0</td>
-                <td>208.0</td>
-                <td>4.2</td>
-            </tr>
-            <tr>
-                <td>XC162</td>
-                <td>全捻T400双经单纬牛津</td>
-                <td>18*2*28</td>
-                <td>75*2*150T400</td>
-                <td>117.0</td>
-                <td>208.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC163</td>
-                <td>27梭T400无捻牛津</td>
-                <td>17*2*27</td>
-                <td>75*2*150T400</td>
-                <td>110.0</td>
-                <td>208.0</td>
-                <td>3.3</td>
-            </tr>
-            <tr>
-                <td>XC164</td>
-                <td>26梭T400无捻牛津</td>
-                <td>17*2*26</td>
-                <td>75*2*150T400</td>
-                <td>108.0</td>
-                <td>208.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC165</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC166</td>
-                <td>50S*50S弹力 酷丝棉平纹  </td>
-                <td>17*2*30</td>
-                <td>50S*50S</td>
-                <td>80.0</td>
-                <td>220.0</td>
-                <td>4.3</td>
-            </tr>
-            <tr>
-                <td>XC167</td>
-                <td>40S*40S弹力 酷丝棉平纹  </td>
-                <td>18*2*27</td>
-                <td>40S*40S</td>
-                <td>110.0</td>
-                <td>208.0</td>
-                <td>4.2</td>
-            </tr>
-            <tr>
-                <td>XC168</td>
-                <td>40S*75T 酷丝棉平纹  </td>
-                <td>18*2*30</td>
-                <td>40S*75T400</td>
-                <td>83.0</td>
-                <td>208.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC169</td>
-                <td>40S*75D 酷丝棉2/1</td>
-                <td>17*3*35</td>
-                <td>40S*75T400</td>
-                <td>110.0</td>
-                <td>215.0</td>
-                <td>3.8</td>
-            </tr>
-            <tr>
-                <td>XC170</td>
-                <td>40S*75D 酷丝棉2/2 </td>
-                <td>17.5*3*35</td>
-                <td>40S*75T400</td>
-                <td>112.0</td>
-                <td>215.0</td>
-                <td>3.8</td>
-            </tr>
-            <tr>
-                <td>XC171</td>
-                <td>40S*75D 酷丝棉骑兵斜  </td>
-                <td>17.5*3*35</td>
-                <td>40S*75T400</td>
-                <td>112.0</td>
-                <td>215.0</td>
-                <td>3.9</td>
-            </tr>
-            <tr>
-                <td>XC172</td>
-                <td>40S*150 酷丝棉26S平纹  </td>
-                <td>18*2*26</td>
-                <td>40S*150T400</td>
-                <td>102.0</td>
-                <td>210.0</td>
-                <td>3.4</td>
-            </tr>
-            <tr>
-                <td>XC173</td>
-                <td>40S*150 酷丝棉2/1 </td>
-                <td>17*3*30</td>
-                <td>40S*150T400</td>
-                <td>130.0</td>
-                <td>215.0</td>
-                <td>4.1</td>
-            </tr>
-            <tr>
-                <td>XC174</td>
-                <td>40S*150D 酷丝棉2/2 </td>
-                <td>17.5*3*29</td>
-                <td>40S*150T400</td>
-                <td>135.0</td>
-                <td>215.0</td>
-                <td>4.3</td>
-            </tr>
-            <tr>
-                <td>XC175</td>
-                <td>40S*150D 酷丝棉骑兵斜  </td>
-                <td>17.5*3*29</td>
-                <td>40S*150T400</td>
-                <td>135.0</td>
-                <td>215.0</td>
-                <td>4.4</td>
-            </tr>
-            <tr>
-                <td>XC176</td>
-                <td>40S*150 酷丝棉3/2斜  </td>
-                <td>13.5*4*35</td>
-                <td>40S*150T400</td>
-                <td>150.0</td>
-                <td>215.0</td>
-                <td>4.9</td>
-            </tr>
-            <tr>
-                <td>XC177</td>
-                <td>40S*150 酷丝棉28S平纹  </td>
-                <td>18*2*28</td>
-                <td>40S*150T400</td>
-                <td>106.0</td>
-                <td>210.0</td>
-                <td>3.6</td>
-            </tr>
-            <tr>
-                <td>XC178</td>
-                <td>40S*150 酷丝棉平纹 28梭</td>
-                <td>19*2*28</td>
-                <td>40S*150T400</td>
-                <td>110.0</td>
-                <td>208.0</td>
-                <td>3.7</td>
-            </tr>
-            <tr>
-                <td>XC179</td>
-                <td>40S*150 酷丝棉24S平纹  </td>
-                <td>18*2*24</td>
-                <td>40S*150T400</td>
-                <td>96.0</td>
-                <td>208.0</td>
-                <td>2.8</td>
-            </tr>
-            <tr>
-                <td>XC180</td>
-                <td>40S*150 酷丝棉3/3斜  </td>
-                <td>13.5*4*35</td>
-                <td>40S*150T400</td>
-                <td>150.0</td>
-                <td>215.0</td>
-                <td>4.5</td>
-            </tr>
-            <tr>
-                <td>XC181</td>
-                <td>50S*75D 酷丝棉2/2 </td>
-                <td>19*3*37</td>
-                <td>50S*75</td>
-                <td>108.0</td>
-                <td>215.0</td>
-                <td>4.6</td>
-            </tr>
-            <tr>
-                <td>XC182</td>
-                <td>50S*75D 酷丝棉绮兵</td>
-                <td>19*3*37</td>
-                <td>50S*75</td>
-                <td>108.0</td>
-                <td>215.0</td>
-                <td>4.7</td>
-            </tr>
-            <tr>
-                <td>XC183</td>
-                <td>50S*75D酷丝绵人字斜</td>
-                <td>18*3*36</td>
-                <td>50S*75T400</td>
-                <td>150.0</td>
-                <td>215.0</td>
-                <td>5.3</td>
-            </tr>
-            <tr>
-                <td>XC184</td>
-                <td>40S*75 酷丝棉3/3斜  </td>
-                <td>13.5*4*35</td>
-                <td>40S*75T400</td>
-                <td>112.0</td>
-                <td>215.0</td>
-                <td>3.7</td>
-            </tr>
-            <tr>
-                <td>XC185</td>
-                <td>50S*75D 酷丝棉2/1 </td>
-                <td>19*3*37</td>
-                <td>50S*75</td>
-                <td>108.0</td>
-                <td>215.0</td>
-                <td>4.6</td>
-            </tr>
-            <tr>
-                <td>XC186</td>
-                <td>40S*150D 酷丝棉骑兵斜  </td>
-                <td>17.5*3*35</td>
-                <td>40S*150T400</td>
-                <td>150.0</td>
-                <td>215.0</td>
-                <td>4.6</td>
-            </tr>
-            <tr>
-                <td>XC187</td>
-                <td>40S*75 酷丝棉3/2斜  </td>
-                <td>17.5*3*34</td>
-                <td>40S*75DT400</td>
-                <td>110.0</td>
-                <td>215.0</td>
-                <td>3.8</td>
-            </tr>
-            <tr>
-                <td>XC188</td>
-                <td>40S*150 酷丝棉5/1斜  </td>
-                <td>13.5*4*35</td>
-                <td>40S*150T400</td>
-                <td>150.0</td>
-                <td>215.0</td>
-                <td>4.6</td>
-            </tr>
-            <tr>
-                <td>XC189</td>
-                <td>100*150T8 4/2斜</td>
-                <td>17*4*225*44</td>
-                <td>100D*150T800</td>
-                <td>177.0</td>
-                <td>225.0</td>
-                <td>5.4</td>
-            </tr>
-            <tr>
-                <td>XC190</td>
-                <td>40S*150D 酷丝棉2/2 </td>
-                <td>17.5*3*35</td>
-                <td>40S*150T400</td>
-                <td>150.0</td>
-                <td>215.0</td>
-                <td>4.4</td>
-            </tr>
-            <tr>
-                <td>XC191</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC192</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC193</td>
-                <td>75*150T400 消3/3斜</td>
-                <td>17*4*36</td>
-                <td>75*150</td>
-                <td>138.0</td>
-                <td>225.0</td>
-                <td>4.3</td>
-            </tr>
-            <tr>
-                <td>XC194</td>
-                <td>75*75T400消 3/3斜</td>
-                <td>20*4*45</td>
-                <td>75*75</td>
-                <td>110.0</td>
-                <td>208.0</td>
-                <td>4.0</td>
-            </tr>
-            <tr>
-                <td>XC195</td>
-                <td>75*75 半光2/2 斜</td>
-                <td>18*4*46</td>
-                <td>75半*75T400</td>
-                <td>105.0</td>
-                <td>215.0</td>
-                <td>4.2</td>
-            </tr>
-            <tr>
-                <td>XC196</td>
-                <td>75*75 消光2/2 斜</td>
-                <td>18*4*43</td>
-                <td>75消*75T400</td>
-                <td>100.0</td>
-                <td>215.0</td>
-                <td>3.7</td>
-            </tr>
-            <tr>
-                <td>XC197</td>
-                <td>75*150 消光2/2 斜</td>
-                <td>18*4*36</td>
-                <td>75消*150T400</td>
-                <td>129.0</td>
-                <td>215.0</td>
-                <td>4.0</td>
-            </tr>
-            <tr>
-                <td>XC198</td>
-                <td>75*75-T800消光骑士斜</td>
-                <td>17*4*38</td>
-                <td>75消*75T800</td>
-                <td>95.0</td>
-                <td>215.0</td>
-                <td>3.7</td>
-            </tr>
-            <tr>
-                <td>XC199</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC200</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC201</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC202</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC203</td>
-                <td>360T 0.1消光平格</td>
-                <td>24*3*50</td>
-                <td>30*30*60</td>
-                <td>nan</td>
-                <td>175.0</td>
-                <td>3.2</td>
-            </tr>
-            <tr>
-                <td>XC204</td>
-                <td>30D380T半光春亚纺</td>
-                <td>25*3+60</td>
-                <td>30*30</td>
-                <td>47.0</td>
-                <td>174.0</td>
-                <td>3.6</td>
-            </tr>
-            <tr>
-                <td>XC205</td>
-                <td>30D360T半光0.15双线格</td>
-                <td>25*3+52</td>
-                <td>30*30</td>
-                <td>47.0</td>
-                <td>174.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC206</td>
-                <td>十字格</td>
-                <td>22*3*41</td>
-                <td>50*75</td>
-                <td>nan</td>
-                <td>165.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC207</td>
-                <td>420T消光2/2斜</td>
-                <td>19*5*45</td>
-                <td>75*75</td>
-                <td>130.0</td>
-                <td>170.0</td>
-                <td>3.8</td>
-            </tr>
-            <tr>
-                <td>XC208</td>
-                <td>六边格</td>
-                <td>17.5*3*30</td>
-                <td>75*150</td>
-                <td>nan</td>
-                <td>165.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC209</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC210</td>
-                <td>芬迪格</td>
-                <td>19*3*39</td>
-                <td>75*75</td>
-                <td>90.0</td>
-                <td>174.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC211</td>
-                <td>X字格</td>
-                <td>16*4*46</td>
-                <td>50*50</td>
-                <td>62.0</td>
-                <td>175.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC212</td>
-                <td>400半光春亚纺</td>
-                <td>25*3*63</td>
-                <td>30*30</td>
-                <td>52.0</td>
-                <td>178.0</td>
-                <td>2.6</td>
-            </tr>
-            <tr>
-                <td>XC213</td>
-                <td>消光四线格</td>
-                <td>16*4*46</td>
-                <td>50*50</td>
-                <td>65.0</td>
-                <td>175.0</td>
-                <td>3.3</td>
-            </tr>
-            <tr>
-                <td>XC214</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC215</td>
-                <td>50D消光三竖一横</td>
-                <td>18*3/5+46</td>
-                <td>50*（50+50*2）</td>
-                <td>69.0</td>
-                <td>170.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC216</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC217</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC218</td>
-                <td>阳离子米通</td>
-                <td>18*3*33</td>
-                <td>75*75+150</td>
-                <td>90.0</td>
-                <td>173.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC219</td>
-                <td>T400横条2*1</td>
-                <td>16*4+30</td>
-                <td>100*75*150</td>
-                <td>128.0</td>
-                <td>215.0</td>
-                <td>3.5</td>
-            </tr>
-            <tr>
-                <td>XC220</td>
-                <td>T400横条1*4</td>
-                <td>17*4+38</td>
-                <td>75*75*150</td>
-                <td>100.0</td>
-                <td>208.0</td>
-                <td>3.3</td>
-            </tr>
-            <tr>
-                <td>XC221</td>
-                <td>T400横条1*1</td>
-                <td>16*4*30</td>
-                <td>100*75*150</td>
-                <td>115.0</td>
-                <td>215.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC222</td>
-                <td>T800米兰条</td>
-                <td>18*3*32</td>
-                <td>75*75*150</td>
-                <td>95.0</td>
-                <td>220.0</td>
-                <td>3.5</td>
-            </tr>
-            <tr>
-                <td>XC223</td>
-                <td>40S*75闪电斜</td>
-                <td>18*3*38</td>
-                <td>40S*75</td>
-                <td>120.0</td>
-                <td>215.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC224</td>
-                <td>40S*150酷丝棉 复合斜</td>
-                <td>13.5*4*31</td>
-                <td>40S*150T400</td>
-                <td>135.0</td>
-                <td>215.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC225</td>
-                <td>40S*150酷丝绵 小钻石斜</td>
-                <td>17.5*3*35</td>
-                <td>40S*150T400</td>
-                <td>145.0</td>
-                <td>215.0</td>
-                <td>4.6</td>
-            </tr>
-            <tr>
-                <td>XC226</td>
-                <td>40S*150酷丝绵 大钻石斜</td>
-                <td>17.5*3*35</td>
-                <td>40S*150T400</td>
-                <td>145.0</td>
-                <td>215.0</td>
-                <td>4.6</td>
-            </tr>
-            <tr>
-                <td>XC227</td>
-                <td>40S*150酷丝绵细双斜</td>
-                <td>13.5*4*35</td>
-                <td>40S*150T400</td>
-                <td>150.0</td>
-                <td>215.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC228</td>
-                <td>40S*150酷丝绵双面骑兵斜</td>
-                <td>13.5*4*35</td>
-                <td>40S*150T400</td>
-                <td>150.0</td>
-                <td>215.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC229</td>
-                <td>40*150D 酷丝棉子母斜  </td>
-                <td>18*3*36</td>
-                <td>40S*150T400</td>
-                <td>145.0</td>
-                <td>215.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC230</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC231</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC232</td>
-                <td>T400双条珍珠点</td>
-                <td>17*3*40</td>
-                <td>50*75*75</td>
-                <td>nan</td>
-                <td>215.0</td>
-                <td>5.5</td>
-            </tr>
-            <tr>
-                <td>XC233</td>
-                <td>40S*300 3/2变化斜</td>
-                <td>13.5*4*28</td>
-                <td>40S*150*2T400</td>
-                <td>190.0</td>
-                <td>215.0</td>
-                <td>6.0</td>
-            </tr>
-            <tr>
-                <td>XC234</td>
-                <td>100D半光*35S-3/3斜</td>
-                <td>16*4*42</td>
-                <td>100*35</td>
-                <td>155.0</td>
-                <td>218.0</td>
-                <td>4.5</td>
-            </tr>
-            <tr>
-                <td>XC235</td>
-                <td>120D扁平3/3斜-45</td>
-                <td>15.5*4*45</td>
-                <td>120*35S</td>
-                <td>170.0</td>
-                <td>220.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC236</td>
-                <td>100D消光*35S-3/3斜</td>
-                <td>16*4*43</td>
-                <td>100*35S</td>
-                <td>155.0</td>
-                <td>218.0</td>
-                <td>4.9</td>
-            </tr>
-            <tr>
-                <td>XC237</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC238</td>
-                <td>120D扁平3/3斜-46</td>
-                <td>16*4*45</td>
-                <td>120*35S</td>
-                <td>180.0</td>
-                <td>220.0</td>
-                <td>5.5</td>
-            </tr>
-            <tr>
-                <td>XC239</td>
-                <td>120D扁平4/4斜</td>
-                <td>17*4*46</td>
-                <td>120*35S</td>
-                <td>190.0</td>
-                <td>225.0</td>
-                <td>5.7</td>
-            </tr>
-            <tr>
-                <td>XC240</td>
-                <td>100D消光多乐3/3斜</td>
-                <td>15*4*43</td>
-                <td>100D*40S+150DT8</td>
-                <td>150.0</td>
-                <td>220.0</td>
-                <td>5.2</td>
-            </tr>
-            <tr>
-                <td>XC241</td>
-                <td>120D扁平1/2斜</td>
-                <td>17*4*34</td>
-                <td>120*35S</td>
-                <td>160.0</td>
-                <td>225.0</td>
-                <td>4.9</td>
-            </tr>
-            <tr>
-                <td>XC242</td>
-                <td>120D扁平T800变化斜</td>
-                <td>17*4*29</td>
-                <td>120*T800</td>
-                <td>190.0</td>
-                <td>220.0</td>
-                <td>5.2</td>
-            </tr>
-            <tr>
-                <td>XC243</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC244</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC245</td>
-                <td>40S*75 酷丝棉3/1斜 </td>
-                <td>13.5*4*34</td>
-                <td>40S*75T400</td>
-                <td>112.0</td>
-                <td>215.0</td>
-                <td>3.8</td>
-            </tr>
-            <tr>
-                <td>XC246</td>
-                <td>40S*150 酷丝棉3/1斜 31</td>
-                <td>13.5*4*31</td>
-                <td>40S*150T400</td>
-                <td>135.0</td>
-                <td>215.0</td>
-                <td>4.3</td>
-            </tr>
-            <tr>
-                <td>XC247</td>
-                <td>40S*150 酷丝棉3/2斜 39</td>
-                <td>13.5*4*39</td>
-                <td>40S*150T400</td>
-                <td>160.0</td>
-                <td>215.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC248</td>
-                <td>40S*75D 酷丝棉2/1 30</td>
-                <td>17*3*30</td>
-                <td>40S*75T400</td>
-                <td>105.0</td>
-                <td>208.0</td>
-                <td>3.4</td>
-            </tr>
-            <tr>
-                <td>XC249</td>
-                <td>40S*75D 酷丝棉2/2 30</td>
-                <td>17.5*3*30</td>
-                <td>40S*75T400</td>
-                <td>108.0</td>
-                <td>215.0</td>
-                <td>3.4</td>
-            </tr>
-            <tr>
-                <td>XC250</td>
-                <td>40S*75D 酷丝棉2/2 38</td>
-                <td>17.5*3*38</td>
-                <td>40S*75T400</td>
-                <td>116.0</td>
-                <td>215.0</td>
-                <td>4.3</td>
-            </tr>
-            <tr>
-                <td>XC251</td>
-                <td>40S*75D 骑兵斜 30 </td>
-                <td>17*3*30</td>
-                <td>40S*75T400</td>
-                <td>105.0</td>
-                <td>215.0</td>
-                <td>3.5</td>
-            </tr>
-            <tr>
-                <td>XC252</td>
-                <td>40S*75D 骑兵斜 38 </td>
-                <td>17.5*3*38</td>
-                <td>40S*75T400</td>
-                <td>116.0</td>
-                <td>215.0</td>
-                <td>4.3</td>
-            </tr>
-            <tr>
-                <td>XC253</td>
-                <td>40S*300 酷丝棉3/2斜</td>
-                <td>13.5*4*27</td>
-                <td>40S*150*2T400</td>
-                <td>190.0</td>
-                <td>215.0</td>
-                <td>5.5</td>
-            </tr>
-            <tr>
-                <td>XC254</td>
-                <td>40S*75T 酷丝棉平纹 33S </td>
-                <td>18*2*33</td>
-                <td>40S*75T400</td>
-                <td>88.0</td>
-                <td>208.0</td>
-                <td>3.1</td>
-            </tr>
-            <tr>
-                <td>XC255</td>
-                <td>40S*300酷丝绵珍珠点</td>
-                <td>17.5*3*23</td>
-                <td>40S*150*300T400</td>
-                <td>185.0</td>
-                <td>215.0</td>
-                <td>5.3</td>
-            </tr>
-            <tr>
-                <td>XC256</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC257</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC258</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC259</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC260</td>
-                <td>40S*150酷丝绵0.5格</td>
-                <td>18*2/3*26</td>
-                <td>40S*150T400+300T400</td>
-                <td>108.0</td>
-                <td>210.0</td>
-                <td>3.5</td>
-            </tr>
-            <tr>
-                <td>XC261</td>
-                <td>80S*75双线格酷丝绵</td>
-                <td>18*3*39</td>
-                <td>80S*75T400+150T400</td>
-                <td>87.0</td>
-                <td>208.0</td>
-                <td>3.8</td>
-            </tr>
-            <tr>
-                <td>XC262</td>
-                <td>T400牛津0.3格</td>
-                <td>16*4*26</td>
-                <td>75*2+150*300</td>
-                <td>115.0</td>
-                <td>208.0</td>
-                <td>3.4</td>
-            </tr>
-            <tr>
-                <td>XC263</td>
-                <td>80S*50酷丝棉0.5格</td>
-                <td>17*3/4+41</td>
-                <td>80S*50+200T400</td>
-                <td>70.0</td>
-                <td>208.0</td>
-                <td>3.7</td>
-            </tr>
-            <tr>
-                <td>XC264</td>
-                <td>40S*150酷丝绵0.3格</td>
-                <td>18*2*25</td>
-                <td>40S*150T400*300T400</td>
-                <td>102.0</td>
-                <td>215.0</td>
-                <td>3.6</td>
-            </tr>
-            <tr>
-                <td>XC265</td>
-                <td>75 T800半光0.5格</td>
-                <td>20*2*36</td>
-                <td>75*75*225</td>
-                <td>78.0</td>
-                <td>215.0</td>
-                <td>3.8</td>
-            </tr>
-            <tr>
-                <td>XC266</td>
-                <td>50D经纬 T8 0.5格</td>
-                <td>22*2*40</td>
-                <td>50*50</td>
-                <td>60.0</td>
-                <td>220.0</td>
-                <td>4.2</td>
-            </tr>
-            <tr>
-                <td>XC267</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC268</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC269</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC270</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC271</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC272</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC273</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC274</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC275</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC276</td>
-                <td>小猫眼</td>
-                <td>23*3+43</td>
-                <td>75消低*75半T800</td>
-                <td>105.0</td>
-                <td>215.0</td>
-                <td>4.0</td>
-            </tr>
-            <tr>
-                <td>XC277</td>
-                <td>半光大猫眼</td>
-                <td>16*4*43</td>
-                <td>100半低*150半T800</td>
-                <td>159.0</td>
-                <td>212.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC278</td>
-                <td>50D低弹*50T800 平纹</td>
-                <td>23*2*40</td>
-                <td>50*50</td>
-                <td>50.0</td>
-                <td>220.0</td>
-                <td>3.6</td>
-            </tr>
-            <tr>
-                <td>XC279</td>
-                <td>30D T8 平纹</td>
-                <td>22*3*57</td>
-                <td>30*30</td>
-                <td>nan</td>
-                <td>210.0</td>
-                <td>4.7</td>
-            </tr>
-            <tr>
-                <td>XC280</td>
-                <td>50D T8 平纹</td>
-                <td>20.5*2*42</td>
-                <td>50*50</td>
-                <td>55.0</td>
-                <td>222.0</td>
-                <td>3.7</td>
-            </tr>
-            <tr>
-                <td>XC281</td>
-                <td>75D经纬T8平纹</td>
-                <td>19*2*30</td>
-                <td>75*75</td>
-                <td>62.0</td>
-                <td>215.0</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>XC282</td>
-                <td>75经纬T8 2/2斜</td>
-                <td>19*3*38</td>
-                <td>75*75</td>
-                <td>100.0</td>
-                <td>208.0</td>
-                <td>4.0</td>
-            </tr>
-            <tr>
-                <td>XC283</td>
-                <td>50DT8*50DT8 骑兵斜  </td>
-                <td>21*3*53</td>
-                <td>50DT8*50DT8</td>
-                <td>80.0</td>
-                <td>208.0</td>
-                <td>4.8</td>
-            </tr>
-            <tr>
-                <td>XC284</td>
-                <td>50D*50D加密T800平纹</td>
-                <td>21*3*47</td>
-                <td>50DT8*50DT8</td>
-                <td>73.0</td>
-                <td>208.0</td>
-                <td>4.0</td>
-            </tr>
-            <tr>
-                <td>XC285</td>
-                <td>T8五面埋伏</td>
-                <td>14*4*38</td>
-                <td>75D消光DTY*75DT8</td>
-                <td>85.0</td>
-                <td>208.0</td>
-                <td>4.0</td>
-            </tr>
-            <tr>
-                <td>XC286</td>
-                <td>50D*100D经纬T800珍珠点</td>
-                <td>21*3*49</td>
-                <td>50D*50D*100D T800</td>
-                <td>88.0</td>
-                <td>218.0</td>
-                <td>4.6</td>
-            </tr>
-            <tr>
-                <td>XC287</td>
-                <td>T800双链条</td>
-                <td>18*3*49</td>
-                <td>75*75*150</td>
-                <td>95.0</td>
-                <td>208.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC288</td>
-                <td>T800牛津-奥特曼</td>
-                <td>16*2*2+30</td>
-                <td>100*2+150</td>
-                <td>135.0</td>
-                <td>215.0</td>
-                <td>3.9</td>
-            </tr>
-            <tr>
-                <td>XC289</td>
-                <td>经消光低弹 纬T800</td>
-                <td>21*2*32</td>
-                <td>75*75</td>
-                <td>68.0</td>
-                <td>220.0</td>
-                <td>2.9</td>
-            </tr>
-            <tr>
-                <td>XC290</td>
-                <td>经消光低弹 双纬T800</td>
-                <td>20*2*28</td>
-                <td>75*75*2</td>
-                <td>88.0</td>
-                <td>220.0</td>
-                <td>3.8</td>
-            </tr>
-            <tr>
-                <td>XC291</td>
-                <td>75D半光T800双纬平纹</td>
-                <td>19*2*26</td>
-                <td>75DT8*75DT8*2</td>
-                <td>80.0</td>
-                <td>215.0</td>
-                <td>3.6</td>
-            </tr>
-            <tr>
-                <td>XC292</td>
-                <td>75消低弹*75T8002/2斜</td>
-                <td>17.5*4*38</td>
-                <td>75*75</td>
-                <td>106.0</td>
-                <td>215.0</td>
-                <td>3.7</td>
-            </tr>
-            <tr>
-                <td>XC293</td>
-                <td>40S*150T800酷丝棉3/2斜  </td>
-                <td>13.5*4*37</td>
-                <td>40S*150T800</td>
-                <td>155.0</td>
-                <td>215.0</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>XC294</td>
-                <td>空变T8平纹</td>
-                <td>19*2*25</td>
-                <td>110消空变*150D半T80</td>
-                <td>nan</td>
-                <td>215.0</td>
-                <td>4.9</td>
-            </tr>
-            <tr>
-                <td>XC295</td>
-                <td>T800消光十面埋伏</td>
-                <td>14*4*43</td>
-                <td>经低弹75*75纬T800</td>
-                <td>nan</td>
-                <td>208.0</td>
-                <td>3.8</td>
-            </tr>
-            <tr>
-                <td>XC296</td>
-                <td>40S*75T8酷丝棉3/1.超钛棉</td>
-                <td>17.5*3*44</td>
-                <td>40S*75T800</td>
-                <td>125.0</td>
-                <td>215.0</td>
-                <td>4.8</td>
-            </tr>
-            <tr>
-                <td>XC297</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC298</td>
-                <td>100D消光75DT800 3/3斜</td>
-                <td>15.5*4*48</td>
-                <td>100*75T8</td>
-                <td>124.0</td>
-                <td>218.0</td>
-                <td>4.8</td>
-            </tr>
-            <tr>
-                <td>XC299</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC300</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC301</td>
-                <td>39梭多乐绵</td>
-                <td>16*4*39</td>
-                <td>100D*40S+150DT8</td>
-                <td>150.0</td>
-                <td>215.0</td>
-                <td>4.7</td>
-            </tr>
-            <tr>
-                <td>XC302</td>
-                <td>34梭多乐绵</td>
-                <td>16*4*34</td>
-                <td>100D*40S+150D</td>
-                <td>140.0</td>
-                <td>215.0</td>
-                <td>4.4</td>
-            </tr>
-            <tr>
-                <td>XC303</td>
-                <td>50D*60S弹力2/2斜</td>
-                <td>21*3*47</td>
-                <td>50DT800*60S弹力酷丝绵</td>
-                <td>90.0</td>
-                <td>218.0</td>
-                <td>4.6</td>
-            </tr>
-            <tr>
-                <td>XC304</td>
-                <td>斜纹毛巾底 </td>
-                <td>13.5*4*51</td>
-                <td>40S*150T8*300低弹</td>
-                <td>215.0</td>
-                <td>225.0</td>
-                <td>7.0</td>
-            </tr>
-            <tr>
-                <td>XC305</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC306</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC307</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC308</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC309</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC310</td>
-                <td>80S*75酷丝绵骑兵斜</td>
-                <td>18*3*43</td>
-                <td>80S*75T400</td>
-                <td>85.0</td>
-                <td>215.0</td>
-                <td>3.9</td>
-            </tr>
-            <tr>
-                <td>XC311</td>
-                <td>80S*50酷丝绵</td>
-                <td>18*3*43</td>
-                <td>80S酷*50DT400</td>
-                <td>73.0</td>
-                <td>208.0</td>
-                <td>3.9</td>
-            </tr>
-            <tr>
-                <td>XC312</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC313</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC314</td>
-                <td>网纹-180</td>
-                <td>17*4*44</td>
-                <td>75D*50S+10DT8</td>
-                <td>116.0</td>
-                <td>225.0</td>
-                <td>5.4</td>
-            </tr>
-            <tr>
-                <td>XC315</td>
-                <td>网纹-220</td>
-                <td>15*4*44</td>
-                <td>100D*35S+150DT8</td>
-                <td>160.0</td>
-                <td>215.0</td>
-                <td>5.2</td>
-            </tr>
-            <tr>
-                <td>XC316</td>
-                <td>天丝棉</td>
-                <td>20*3*32</td>
-                <td>80S*三合一</td>
-                <td>110.0</td>
-                <td>188.0</td>
-                <td>3.7</td>
-            </tr>
-            <tr>
-                <td>XC317</td>
-                <td>天丝棉</td>
-                <td>21*3*31</td>
-                <td>80S*三合一</td>
-                <td>110.0</td>
-                <td>208.0</td>
-                <td>4.0</td>
-            </tr>
-            <tr>
-                <td>XC318</td>
-                <td>270-钛金棉</td>
-                <td>14*4*26.5</td>
-                <td>40S*35S*2</td>
-                <td>205.0</td>
-                <td>215.0</td>
-                <td>5.5</td>
-            </tr>
-            <tr>
-                <td>XC319</td>
-                <td>40S*35S 酷3/3斜 双龙 </td>
-                <td>16*4*45</td>
-                <td>40S*35S</td>
-                <td>185.0</td>
-                <td>218.0</td>
-                <td>6.0</td>
-            </tr>
-            <tr>
-                <td>XC320</td>
-                <td>210-钛金棉</td>
-                <td>17*3*27</td>
-                <td>40S*30S</td>
-                <td>138.0</td>
-                <td>220.0</td>
-                <td>4.4</td>
-            </tr>
-            <tr>
-                <td>XC321</td>
-                <td>加厚钛金棉</td>
-                <td>15.5*4*30</td>
-                <td>40S*35S*2</td>
-                <td>225.0</td>
-                <td>215.0</td>
-                <td>6.0</td>
-            </tr>
-            <tr>
-                <td>XC322</td>
-                <td>240-钛金棉</td>
-                <td>17.5*3*31</td>
-                <td>40S*30S</td>
-                <td>155.0</td>
-                <td>215.0</td>
-                <td>5.1</td>
-            </tr>
-            <tr>
-                <td>XC323</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-            <tr>
-                <td>XC324</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- 联系弹窗 -->
+    <div class="modal-overlay" id="contactModalOverlay" onclick="closeContactModal()">
+        <div class="contact-modal" onclick="event.stopPropagation()">
+            <div class="contact-modal-header">
+                <h3>联系我们</h3>
+                <button class="close-btn" onclick="closeContactModal()">&times;</button>
+            </div>
+            <ul class="contact-list">
+                <li>沙漠倾城 微信：18962500118</li>
+                <li>沙漠倾城 企鹅：18962500118</li>
+                <li><a href="mailto:18962500118@qq.com">邮箱：18962500118@qq.com</a></li>
+                <li><a href="mailto:674058055@qq.com">邮箱：674058055@qq.com</a></li>
+                <li style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee;">
+                    <strong>相关链接：</strong>
+                </li>
+                <li><a href="https://smqc.top" target="_blank">沙漠倾城官方音乐网站</a></li>
+                <li><a href="https://xc.smqc.top" target="_blank">旭辰纺织官方网站</a></li>
+                <li><a href="https://yx.smqc.top" target="_blank">沙漠倾城官方音乐消消乐</a></li>
+                <li><a href="https://jsq.smqc.top" target="_blank">沙漠倾城官方音乐计算器</a></li>
+            </ul>
+            <div class="password-input-group">
+                <label for="pricePassword">请输入密码查看价格：</label>
+                <input type="password" id="pricePassword" placeholder="请输入密码">
+                <button onclick="verifyPassword()">确认查看价格</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>旭辰纺织官方网站</h4>
+                <p>旗下：嘉兴市旭辰纺织股份有限公司｜安徽旭辰纺织科技有限公司｜江苏嘉锦纺织科技有限公司<br>
+                酷丝棉面料实力供应商，专注高端纺织面料研发生产，品质保障、交期稳定</p>
+            </div>
+            <div class="footer-section">
+                <h4>门市部地址</h4>
+                <p>江苏省苏州市吴江区盛泽镇温州商区13幢1-3号</p>
+            </div>
+            <div class="footer-section">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>电话：张斌 18962500118</li>
+                    <li>微信：沙漠丶倾城 18962500118</li>
+                    <li style="margin-top: 10px;"></li> <!-- 增加间距 -->
+                    <li>电话：储林珍 13957391917</li>
+                    <li>微信：coco 13957391917</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>友情链接（沙漠倾城）</h4>
+                <ul>
+                    <li><a href="https://smqc.top" target="_blank">沙漠倾城官方音乐网站</a></li>
+                    <li><a href="https://xc.smqc.top" target="_blank">旭辰纺织官方网站</a></li>
+                    <li><a href="https://yx.smqc.top" target="_blank">沙漠倾城官方音乐消消乐</a></li>
+                    <li><a href="https://jsq.smqc.top" target="_blank">沙漠倾城官方音乐计算器</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 旭辰纺织官方网站 版权所有 | 域名：xc.smqc.top</p>
+        </div>
+    </footer>
 
     <script>
+        // 存储真实价格的数组
+        let originalPrices = [];
+
+        // 页面加载完成后，先隐藏价格
+        document.addEventListener('DOMContentLoaded', function() {
+            const priceCells = document.querySelectorAll('#productTable tbody .price-cell');
+            priceCells.forEach(cell => {
+                // 保存原始价格文本
+                originalPrices.push(cell.textContent);
+                // 替换为占位符
+                cell.innerHTML = '<span class="price-hidden">******</span>';
+            });
+        });
+
+        // 表格搜索功能
         function searchTable() {
             var input, filter, table, tr, td, i, txtValue;
             input = document.getElementById("searchInput");
@@ -3001,7 +751,6 @@
 
             for (i = 1; i < tr.length; i++) {
                 var display = false;
-                // 检查每一行的所有列
                 for (var j = 0; j < tr[i].cells.length; j++) {
                     td = tr[i].getElementsByTagName("td")[j];
                     if (td) {
@@ -3015,6 +764,41 @@
                 tr[i].style.display = display ? "" : "none";
             }
         }
+
+        // 打开联系弹窗
+        function openContactModal() {
+            document.getElementById('contactModalOverlay').classList.add('show');
+        }
+
+        // 关闭联系弹窗
+        function closeContactModal() {
+            document.getElementById('contactModalOverlay').classList.remove('show');
+        }
+
+        // 验证密码并显示价格
+        function verifyPassword() {
+            const passwordInput = document.getElementById('pricePassword');
+            const correctPassword = '18962500118';
+
+            if (passwordInput.value === correctPassword) {
+                const priceCells = document.querySelectorAll('#productTable tbody .price-cell');
+                priceCells.forEach((cell, index) => {
+                    cell.textContent = originalPrices[index];
+                });
+                alert('密码验证成功！价格已显示。');
+                closeContactModal();
+            } else {
+                alert('密码错误，请重新输入！');
+                passwordInput.value = '';
+            }
+        }
+
+        // ESC键关闭弹窗
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeContactModal();
+            }
+        });
     </script>
 </body>
 </html>
