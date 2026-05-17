@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>旭辰纺织产品规格</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei"}
 body{background:#f8f9fa;color:#333}
 .header{background:#4a69bd;color:#fff;padding:20px;text-align:center}
 .container{max-width:1200px;margin:20px auto;padding:0 20px}
 .search{text-align:center;margin:20px 0}
 #search{width:60%;max-width:500px;padding:12px 20px;border:2px solid #ddd;border-radius:30px;outline:0}
-#search:focus{border-color:#4a69bd}
 .table-box{overflow:auto;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
 table{width:100%;border-collapse:collapse;background:#fff}
 th{background:#4a69bd;color:#fff;padding:14px 12px;position:sticky;top:0}
@@ -19,40 +18,30 @@ td{padding:14px 12px;border-bottom:1px solid #eee}
 tr:nth-child(even){background:#f8f9fa}
 tr:hover{background:#e9f7fe}
 .btn-bar{display:flex;gap:10px;justify-content:flex-end;margin-bottom:10px}
-.btn{background:#4a69bd;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;font-size:14px}
-.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:none;place-items:center}
+.btn{background:#4a69bd;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer}
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;place-items:center}
 .modal.show{display:grid}
-.modal-box{background:#fff;padding:22px;border-radius:8px;min-width:320px;max-width:90vw;line-height:1.8}
-.modal-box h3{margin-bottom:10px;color:#4a69bd}
+.modal-box{background:#fff;padding:22px;border-radius:8px;min-width:320px;line-height:1.8}
 .modal-box a{color:#4a69bd;text-decoration:none}
-.modal-box input{width:100%;margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:4px}
-.modal-box button{width:100%;background:#28a745;color:#fff;padding:10px;border:none;border-radius:4px;margin-top:6px}
 .footer{background:#2c3e50;color:#fff;padding:40px 20px;margin-top:40px;line-height:1.8}
 .footer a{color:#74b9ff;text-decoration:none}
-.footer h4{margin-top:16px;margin-bottom:6px;color:#fff}
-@media(max-width:768px){
-  #search{width:90%}
-  th,td{padding:10px 8px;font-size:14px}
-  .btn-bar{flex-wrap:wrap;justify-content:flex-start}
-}
 </style>
 </head>
 <body>
+
 <div class="header"><h1>旭辰纺织产品规格</h1></div>
 <div class="container">
   <div class="search"><input type="text" id="search" placeholder="搜索编号/品名" oninput="searchTable()"></div>
-
   <div class="btn-bar">
     <button class="btn" onclick="showContact()">联系</button>
     <button class="btn" onclick="showPwd()">查看价格</button>
   </div>
-
   <div class="table-box">
-    <table id="table"><thead><tr><th>编号</th><th>品名</th><th>规格</th><th>原料</th><th>克重</th><th>门幅</th><th>价格</th></tr></thead><tbody></tbody></table>
+    <table id="table"><thead><tr><th>编号</th><th>品名</th><th>原料</th><th>克重</th><th>门幅</th><th>价格</th></tr></thead><tbody></tbody></table>
   </div>
 </div>
 
-<!-- 联系弹窗 -->
+<!-- 联系弹窗（全部可点击跳转） -->
 <div id="contactModal" class="modal" onclick="closeModal()">
   <div class="modal-box" onclick="event.stopPropagation()">
     <h3>联系我们</h3>
@@ -61,7 +50,7 @@ tr:hover{background:#e9f7fe}
     <p>企鹅：<a href="tencent://message/?uin=18962500118" target="_blank">18962500118</a></p>
     <p>邮箱：<a href="mailto:18962500118@qq.com">18962500118@qq.com</a></p>
     <p>邮箱：<a href="mailto:674058055@qq.com">674058055@qq.com</a></p>
-    <hr style="margin:12px 0;border-color:#eee">
+    <br>
     <p>沙漠倾城官方音乐网站：<a href="https://smqc.top" target="_blank">smqc.top</a></p>
     <p>旭辰纺织官方网站：<a href="https://xc.smqc.top" target="_blank">xc.smqc.top</a></p>
     <p>沙漠倾城标签打印官网：<a href="https://dy.smqc.top" target="_blank">dy.smqc.top</a></p>
@@ -70,37 +59,37 @@ tr:hover{background:#e9f7fe}
   </div>
 </div>
 
-<!-- 密码弹窗 -->
+<!-- 价格密码弹窗 -->
 <div id="pwdModal" class="modal" onclick="closeModal()">
   <div class="modal-box" onclick="event.stopPropagation()">
     <h3>查看价格</h3>
-    <input type="password" id="pwd" placeholder="请输入密码" />
+    <input type="password" id="pwd" placeholder="请输入密码">
     <button onclick="checkPwd()">确认查看</button>
   </div>
 </div>
 
-<!-- 底部完整信息（已去掉所有https://） -->
+<!-- 底部（友情链接全部可点击跳转） -->
 <div class="footer">
   <p><strong>旭辰纺织官方网站</strong></p>
   <p>旗下：嘉兴市旭辰纺织股份有限公司｜安徽旭辰纺织科技有限公司｜江苏嘉锦纺织科技有限公司</p>
   <p>酷丝棉面料实力供应商，专注高端纺织面料研发生产，品质保障、交期稳定</p>
-
-  <h4>门市部地址</h4>
+  <br>
+  <p><strong>门市部地址</strong></p>
   <p>江苏省苏州市吴江区盛泽镇温州商区13幢1-3号</p>
-
-  <h4>联系方式</h4>
+  <br>
+  <p><strong>联系方式</strong></p>
   <p>电话：张经理 18962500118</p>
   <p>微信：沙漠倾城 18962500118</p>
   <p>电话：储经理 13957391917</p>
   <p>微信：coco 13957391917</p>
-
-  <h4>友情链接（沙漠倾城）</h4>
-  <p>沙漠倾城官方音乐网站：<a href="https://smqc.top" target="_blank">smqc.top</a></p>
-  <p>旭辰纺织官方网站：<a href="https://xc.smqc.top" target="_blank">xc.smqc.top</a></p>
-  <p>沙漠倾城标签打印官网：<a href="https://dy.smqc.top" target="_blank">dy.smqc.top</a></p>
-  <p>沙漠倾城官方音乐消消乐：<a href="https://yx.smqc.top" target="_blank">yx.smqc.top</a></p>
-  <p>沙漠倾城官方音乐计算器：<a href="https://jsq.smqc.top" target="_blank">jsq.smqc.top</a></p>
-
+  <br>
+  <p><strong>友情链接（沙漠倾城）</strong></p>
+    <p>沙漠倾城官方音乐网站：<a href="https://smqc.top" target="_blank">smqc.top</a></p>
+    <p>旭辰纺织官方网站：<a href="https://xc.smqc.top" target="_blank">xc.smqc.top</a></p>
+    <p>沙漠倾城标签打印官网：<a href="https://dy.smqc.top" target="_blank">dy.smqc.top</a></p>
+    <p>沙漠倾城官方音乐消消乐：<a href="https://yx.smqc.top" target="_blank">yx.smqc.top</a></p>
+    <p>沙漠倾城官方音乐计算器：<a href="https://jsq.smqc.top" target="_blank">jsq.smqc.top</a></p>
+  <br>
   <p style="margin-top:20px;color:#ccc">Copyright © 2025 旭辰纺织官方网站 版权所有 | 域名：xc.smqc.top</p>
 </div>
 
@@ -109,38 +98,34 @@ tr:hover{background:#e9f7fe}
 let allData = [], showPrice = false;
 const pwdRight = "18962500118";
 
-// 读取Excel
 async function loadExcel() {
   const url = "https://raw.githubusercontent.com/smqcgf/CP/main/产品规格.xlsx";
   const res = await fetch(url);
   const buf = await res.arrayBuffer();
   const wb = XLSX.read(buf);
-  const data = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
-  allData = data.filter(i => i["编号"] && i["编号"].startsWith("XC"));
+  allData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+  allData = allData.filter(item => item["编号"] && item["编号"].startsWith("XC"));
   renderTable();
 }
 
-// 渲染表格
 function renderTable() {
   const tbody = document.querySelector("#table tbody");
   tbody.innerHTML = "";
   allData.forEach(item => {
-    const tr = document.createElement("tr");
     const price = item["价格"] || "";
-    tr.innerHTML = `
-      <td>${item["编号"]||""}</td>
-      <td>${item["品名"]||""}</td>
-      <td>${item["规格"]||""}</td>
-      <td>${item["原料"]||""}</td>
-      <td>${item["克重"]||""}</td>
-      <td>${item["门幅"]||""}</td>
-      <td>${showPrice ? price : "******"}</td>
+    tbody.innerHTML += `
+      <tr>
+        <td>${item["编号"]||""}</td>
+        <td>${item["品名"]||""}</td>
+        <td>${item["原料"]||""}</td>
+        <td>${item["克重"]||""}</td>
+        <td>${item["门幅"]||""}</td>
+        <td>${showPrice ? price : "******"}</td>
+      </tr>
     `;
-    tbody.appendChild(tr);
   });
 }
 
-// 搜索
 function searchTable() {
   const kw = document.getElementById("search").value.toUpperCase();
   document.querySelectorAll("#table tbody tr").forEach(tr => {
@@ -148,17 +133,15 @@ function searchTable() {
   });
 }
 
-// 弹窗控制
-function showContact() { contactModal.classList.add("show"); }
-function showPwd() { pwdModal.classList.add("show"); }
-function closeModal() { contactModal.classList.remove("show"); pwdModal.classList.remove("show"); }
+function showContact() { contactModal.classList.add("show") }
+function showPwd() { pwdModal.classList.add("show") }
+function closeModal() { contactModal.classList.remove("show"); pwdModal.classList.remove("show") }
 
-// 密码验证
 function checkPwd() {
-  if (document.getElementById("pwd").value.trim() === pwdRight) {
+  if (document.getElementById("pwd").value === pwdRight) {
     showPrice = true; renderTable(); closeModal(); alert("密码正确，价格已显示");
   } else {
-    alert("密码错误"); document.getElementById("pwd").value = "";
+    alert("密码错误");
   }
 }
 
