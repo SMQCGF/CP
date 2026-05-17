@@ -41,7 +41,7 @@ tr:hover{background:#e9f7fe}
   </div>
 </div>
 
-<!-- 联系弹窗 -->
+<!-- 联系弹窗（可点击跳转） -->
 <div id="contactModal" class="modal" onclick="closeModal()">
   <div class="modal-box" onclick="event.stopPropagation()">
     <h3>联系我们</h3>
@@ -68,7 +68,7 @@ tr:hover{background:#e9f7fe}
   </div>
 </div>
 
-<!-- 底部 -->
+<!-- 底部（友情链接可点击） -->
 <div class="footer">
   <p><strong>旭辰纺织官方网站</strong></p>
   <p>旗下：嘉兴市旭辰纺织股份有限公司｜安徽旭辰纺织科技有限公司｜江苏嘉锦纺织科技有限公司</p>
@@ -93,18 +93,26 @@ tr:hover{background:#e9f7fe}
   <p style="margin-top:20px;color:#ccc">Copyright © 2025 旭辰纺织官方网站 版权所有 | 域名：xc.smqc.top</p>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 <script>
 let allData = [], showPrice = false;
 const pwdRight = "18962500118";
 
+// ✅ 正确对应你Excel的表头：编号：、品名：、规格：、原料：、克重：、门幅：、价格：
 async function loadExcel() {
-  const url = "https://cdn.jsdelivr.net/gh/smqcgf/CP/main/产品规格.xlsx";
+  const url = "https://ghproxy.net/https://raw.githubusercontent.com/smqcgf/CP/main/产品规格.xlsx";
   const res = await fetch(url);
   const buf = await res.arrayBuffer();
   const wb = XLSX.read(buf);
   allData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
-  allData = allData.filter(item => item["编号"] && item["编号"].startsWith("XC"));
+  
+  // 只显示XC开头的有效数据
+  allData = allData.filter(item => 
+    item["编号："] && 
+    item["编号："].trim().startsWith("XC") && 
+    item["品名："]
+  );
+  
   renderTable();
 }
 
@@ -112,16 +120,15 @@ function renderTable() {
   const tbody = document.querySelector("#table tbody");
   tbody.innerHTML = "";
   allData.forEach(item => {
-    const price = item["价格"] || "";
     tbody.innerHTML += `
       <tr>
-        <td>${item["编号"]||""}</td>
-        <td>${item["品名"]||""}</td>
-        <td>${item["规格"]||""}</td>
-        <td>${item["原料"]||""}</td>
-        <td>${item["克重"]||""}</td>
-        <td>${item["门幅"]||""}</td>
-        <td>${showPrice ? price : "******"}</td>
+        <td>${item["编号："]||""}</td>
+        <td>${item["品名："]||""}</td>
+        <td>${item["规格："]||""}</td>
+        <td>${item["原料："]||""}</td>
+        <td>${item["克重："]||""}</td>
+        <td>${item["门幅："]||""}</td>
+        <td>${showPrice ? (item["价格："]||"") : "******"}</td>
       </tr>
     `;
   });
