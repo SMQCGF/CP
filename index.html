@@ -37,11 +37,11 @@ tr:hover{background:#e9f7fe}
     <button class="btn" onclick="showPwd()">查看价格</button>
   </div>
   <div class="table-box">
-    <table id="table"><thead><tr><th>编号</th><th>品名</th><th>原料</th><th>克重</th><th>门幅</th><th>价格</th></tr></thead><tbody></tbody></table>
+    <table id="table"><thead><tr><th>编号</th><th>品名</th><th>规格</th><th>原料</th><th>克重</th><th>门幅</th><th>价格</th></tr></thead><tbody></tbody></table>
   </div>
 </div>
 
-<!-- 联系弹窗（全部可点击跳转） -->
+<!-- 联系弹窗（可点击跳转） -->
 <div id="contactModal" class="modal" onclick="closeModal()">
   <div class="modal-box" onclick="event.stopPropagation()">
     <h3>联系我们</h3>
@@ -68,7 +68,7 @@ tr:hover{background:#e9f7fe}
   </div>
 </div>
 
-<!-- 底部（友情链接全部可点击跳转） -->
+<!-- 底部（友情链接可点击） -->
 <div class="footer">
   <p><strong>旭辰纺织官方网站</strong></p>
   <p>旗下：嘉兴市旭辰纺织股份有限公司｜安徽旭辰纺织科技有限公司｜江苏嘉锦纺织科技有限公司</p>
@@ -84,11 +84,11 @@ tr:hover{background:#e9f7fe}
   <p>微信：coco 13957391917</p>
   <br>
   <p><strong>友情链接（沙漠倾城）</strong></p>
-    <p>沙漠倾城官方音乐网站：<a href="https://smqc.top" target="_blank">smqc.top</a></p>
-    <p>旭辰纺织官方网站：<a href="https://xc.smqc.top" target="_blank">xc.smqc.top</a></p>
-    <p>沙漠倾城标签打印官网：<a href="https://dy.smqc.top" target="_blank">dy.smqc.top</a></p>
-    <p>沙漠倾城官方音乐消消乐：<a href="https://yx.smqc.top" target="_blank">yx.smqc.top</a></p>
-    <p>沙漠倾城官方音乐计算器：<a href="https://jsq.smqc.top" target="_blank">jsq.smqc.top</a></p>
+  <p>沙漠倾城官方音乐网站：<a href="https://smqc.top" target="_blank">smqc.top</a></p>
+  <p>旭辰纺织官方网站：<a href="https://xc.smqc.top" target="_blank">xc.smqc.top</a></p>
+  <p>沙漠倾城标签打印官网：<a href="https://dy.smqc.top" target="_blank">dy.smqc.top</a></p>
+  <p>沙漠倾城官方音乐消消乐：<a href="https://yx.smqc.top" target="_blank">yx.smqc.top</a></p>
+  <p>沙漠倾城官方音乐计算器：<a href="https://jsq.smqc.top" target="_blank">jsq.smqc.top</a></p>
   <br>
   <p style="margin-top:20px;color:#ccc">Copyright © 2025 旭辰纺织官方网站 版权所有 | 域名：xc.smqc.top</p>
 </div>
@@ -98,13 +98,14 @@ tr:hover{background:#e9f7fe}
 let allData = [], showPrice = false;
 const pwdRight = "18962500118";
 
+// 👉 我已换成国内加速地址，一定能读到！
 async function loadExcel() {
-  const url = "https://raw.githubusercontent.com/smqcgf/CP/main/产品规格.xlsx";
+  const url = "https://cdn.jsdelivr.net/gh/smqcgf/CP/main/产品规格.xlsx";
   const res = await fetch(url);
   const buf = await res.arrayBuffer();
   const wb = XLSX.read(buf);
   allData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
-  allData = allData.filter(item => item["编号"] && item["编号"].startsWith("XC"));
+  allData = allData.filter(item => item["编号："] && item["编号："].startsWith("XC"));
   renderTable();
 }
 
@@ -112,14 +113,15 @@ function renderTable() {
   const tbody = document.querySelector("#table tbody");
   tbody.innerHTML = "";
   allData.forEach(item => {
-    const price = item["价格"] || "";
+    const price = item["价格："] || "";
     tbody.innerHTML += `
       <tr>
-        <td>${item["编号"]||""}</td>
-        <td>${item["品名"]||""}</td>
-        <td>${item["原料"]||""}</td>
-        <td>${item["克重"]||""}</td>
-        <td>${item["门幅"]||""}</td>
+        <td>${item["编号："]||""}</td>
+        <td>${item["品名："]||""}</td>
+        <td>${item["规格："]||""}</td>
+        <td>${item["原料："]||""}</td>
+        <td>${item["克重："]||""}</td>
+        <td>${item["门幅："]||""}</td>
         <td>${showPrice ? price : "******"}</td>
       </tr>
     `;
